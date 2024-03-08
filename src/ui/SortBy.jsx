@@ -1,0 +1,28 @@
+import { useSearchParams } from 'react-router-dom';
+function SortBy({ options }) {
+	const [searchParams, setSearchParams] = useSearchParams();
+
+	function handleChange(e) {
+		console.log(e.target.value);
+		searchParams.set('sortBy', e.target.value);
+		setSearchParams(searchParams);
+	}
+	const sortBy = searchParams.get('sortBy') || '';
+
+	return (
+		<select
+			onChange={handleChange}
+			className='px-5 py-3 text-2xl font-medium text-gray-800 border border-gray-100 rounded-md'
+			value={sortBy}>
+			{options.map((option) => {
+				return (
+					<option key={option.value} value={option.value}>
+						{option.label}
+					</option>
+				);
+			})}
+		</select>
+	);
+}
+
+export default SortBy;
