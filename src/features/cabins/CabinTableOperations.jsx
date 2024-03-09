@@ -1,9 +1,10 @@
 import Filter from '../../ui/Filter';
 import SortBy from '../../ui/SortBy';
+import TableOperations from '../../ui/TableOperations';
 
 function CabinTableOperations() {
 	return (
-		<div className='flex flex-col space-y-4 max-w-4/5 md:items-center md:flex-row md:space-y-0 md:space-x-4'>
+		<TableOperations>
 			<Filter
 				filterField={'discount'}
 				options={[
@@ -20,7 +21,7 @@ function CabinTableOperations() {
 					{ value: 'maxCapacity-desc', label: 'Sort by capacity (high-first)' },
 				]}
 			/>
-		</div>
+		</TableOperations>
 	);
 }
 

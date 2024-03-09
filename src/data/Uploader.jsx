@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { isFuture, isPast, isToday } from "date-fns";
 import supabase from "../services/supabase";
-import Button from "../ui/Button";
+import StyledButton from "../ui/StyledButton";
 import { subtractDates } from "../utils/helpers";
 
 import { bookings } from "./data-bookings";
@@ -105,7 +105,7 @@ function Uploader() {
 
   async function uploadAll() {
     setIsLoading(true);
-    // Bookings need to be deleted FIRST
+    // Bookingsneed to be deleted FIRST
     await deleteBookings();
     await deleteGuests();
     await deleteCabins();
@@ -140,13 +140,13 @@ function Uploader() {
     >
       <h3>SAMPLE DATA</h3>
 
-      <Button onClick={uploadAll} disabled={isLoading}>
+      <StyledButton onClick={uploadAll} disabled={isLoading}>
         Upload ALL
-      </Button>
+      </StyledButton>
 
-      <Button onClick={uploadBookings} disabled={isLoading}>
+      <StyledButton onClick={uploadBookings} disabled={isLoading}>
         Upload bookings ONLY
-      </Button>
+      </StyledButton>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Logo from '../ui/Logo';
 import StyledNav from '../ui/StyledNav';
+import Uploader from '../data/Uploader';
 import { paths } from '../routes';
 import {
 	HiCalendar,
@@ -44,6 +45,7 @@ function Sidebar() {
 					<span>Users</span>
 				</StyledNav>
 			</ul>
+			<Uploader />
 		</nav>
 	);
 }

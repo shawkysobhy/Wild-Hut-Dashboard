@@ -29,7 +29,7 @@ function CabinTable() {
 		(a, b) => (a[sortType] - b[sortType]) * modifier
 	);
 	return (
-		<div className=' max-w-screen'>
+		<div className='overflow-x-auto  max-w-screen'>
 			<div className='flex flex-col space-y-9'>
 				<table className='border border-gray-200 rounded-md '>
 					<thead className='px-10 py-6 font-medium tracking-wide text-gray-600 border-b border-gray-100 bg-gray-50'>

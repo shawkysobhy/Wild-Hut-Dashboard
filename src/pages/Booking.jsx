@@ -1,13 +1,16 @@
 import StyledTitle from '../ui/StyledTitle';
-
-function Booking() {
+import BookingTableOperations from '../features/bookings/BookingTableOperations';
+import BookingTable from '../features/bookings/BookingTable';
+function Bookings() {
 	return (
-		<div className='section-wrapper'>
-			<div>
-				<StyledTitle>All bookings</StyledTitle>
+		<div className=' section-wrapper'>
+			<div className='flex flex-col items-start justify-between space-y-4 md:px-8 md:flex-row md:space-y-0'>
+				<StyledTitle>All Bookings</StyledTitle>
+				<BookingTableOperations />
 			</div>
+			<BookingTable />
 		</div>
 	);
 }
 
-export default Booking;
+export default Bookings;
