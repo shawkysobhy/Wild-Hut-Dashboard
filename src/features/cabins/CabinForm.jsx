@@ -17,7 +17,7 @@ function CabinForm() {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='px-4 py-8 overflow-hidden bg-white border border-gray-100 rounded-md text-5'>
+			className='p-8 bg-white border border-gray-100 rounded-md text-5'>
 			<CabinFormRow>
 				<StyledLabel>Cabin name</StyledLabel>
 				<input
