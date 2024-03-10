@@ -1,14 +1,25 @@
 import CabinRow from './CabinRow';
 import BrandButton from '../../ui/BrandButton';
-import { useQuery } from '@tanstack/react-query';
-import { getCabins } from '../../services/apiCabin';
 import { useSearchParams } from 'react-router-dom';
 import { useCabins } from './useCabins';
-
+import Spinner from '../../ui/Spinner';
+import { useState } from 'react';
+import CabinForm from './CabinForm';
+import Modal from '../../ui/Modal';
 function CabinTable() {
 	const [searchParams] = useSearchParams();
 	const { cabins, isLoading } = useCabins();
-	if (isLoading) return <h1>loading</h1>;
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const openModal = () => {
+		setIsModalOpen(true);
+	};
+
+	const closeModal = () => {
+		setIsModalOpen(false);
+	};
+
+	if (isLoading) return <Spinner />;
 	const filterValue = searchParams.get('discount') || 'all';
 	let filterCabins = cabins;
 	if (filterValue === 'all') {
@@ -23,14 +34,13 @@ function CabinTable() {
 
 	const sortBy = searchParams.get('sortBy') || '';
 	const [sortType, direction] = sortBy.split('-');
-	console.log(sortType);
 	const modifier = direction === 'asc' ? 1 : -1;
 	const sortedCabins = filterCabins.sort(
 		(a, b) => (a[sortType] - b[sortType]) * modifier
 	);
 	return (
-		<div className='overflow-x-auto  max-w-screen'>
-			<div className='flex flex-col space-y-9'>
+		<div className='overflow-x-auto max-w-screen'>
+			<div className='flex flex-col overflow-x-auto space-y-9 max-w-screen'>
 				<table className='border border-gray-200 rounded-md '>
 					<thead className='px-10 py-6 font-medium tracking-wide text-gray-600 border-b border-gray-100 bg-gray-50'>
 						<tr className='  py-5 px-10 grid text-left  grid-cols-[1fr_1fr_1fr_.6fr_0.5fr] gap-x-10 items-center	'>
@@ -47,8 +57,15 @@ function CabinTable() {
 						))}
 					</tbody>
 				</table>
-				<BrandButton onClick={() => {}}>Add new cabin</BrandButton>
 			</div>
+			<BrandButton sx={'m-4'} onClick={openModal}>
+				Add new cabin
+			</BrandButton>
+			{isModalOpen && (
+				<Modal onClose={closeModal}>
+					<CabinForm />
+				</Modal>
+			)}
 		</div>
 	);
 }

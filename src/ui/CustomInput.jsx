@@ -1,4 +1,4 @@
-function CustomInput({ type, placeholder, value, onChange, defaultValue }) {
+function CustomInput({ type, placeholder, value, onChange, defaultValue  }) {
 	return (
 		<input
 			placeholder={placeholder || ''}
