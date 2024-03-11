@@ -4,6 +4,7 @@ import BrandButton from '../../ui/BrandButton';
 import CabinFormRow from './CabinFormRow';
 import useCreateCabin from './useCreateCabin';
 import useEditCabin from './useEditCabin';
+import StyledButton from '../../ui/StyledButton';
 function CabinForm({ editableCabin = {}, onClose }) {
 	const { isCreating, createCabinMutate } = useCreateCabin();
 	const { id: editableCabinId, ...editCabinValues } = editableCabin;
@@ -125,9 +126,14 @@ function CabinForm({ editableCabin = {}, onClose }) {
 				/>
 				<div>{errors && errors?.description?.message}</div>
 			</CabinFormRow>
-			<BrandButton type='submit' sx={'my-4'}>
-				{isCreating ? 'createing cabin' : 'Add Cabin'}
-			</BrandButton>
+			<div className='flex items-center space-x-4'>
+				<BrandButton type='submit' sx={'my-4'}>
+					{isCreating ? 'createing cabin' : 'Add Cabin'}
+				</BrandButton>
+				<StyledButton onClick={onClose} sx='bg-gray-200'>
+					Cancel
+				</StyledButton>
+			</div>
 		</form>
 	);
 }

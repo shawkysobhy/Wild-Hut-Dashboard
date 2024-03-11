@@ -7,36 +7,14 @@ import useDeleteCabin from './useDeleteCabin';
 import ConfirmDelete from '../../ui/ConfirmDelete';
 import useMenu from '../../hooks/useMenu';
 import useCreateCabin from './useCreateCabin';
-import BrandButton from '../../ui/BrandButton';
+import useModal from '../../hooks/useModal';
+import ConfrimDuplicate from '../../ui/ConfrimDuplicate';
 const CabinActions = ({ cabin }) => {
-	const [showModal, setShowModal] = useState(false);
-	const openModal = () => {
-		setShowModal(true);
-	};
-
-	const closeModal = () => {
-		setShowModal(false);
-	};
+	const { showModal, openModal, closeModal } = useModal();
 	const { isOpen, setIsOpen, menuRef, toggleMenu } = useMenu();
 	const { deleteCabin } = useDeleteCabin();
 	const [action, setAction] = useState();
-	// const [isOpen, setIsOpen] = useState(false);
-	// // const menuRef = useRef(null);
-	// useEffect(() => {
-	// 	const handleClickOutside = (event) => {
-	// 		if (menuRef.current && !menuRef.current.contains(event.target)) {
-	// 			setIsOpen(false);
-	// 		}
-	// 	};
-	// 	document.addEventListener('mousedown', handleClickOutside);
-	// 	return () => {
-	// 		document.removeEventListener('mousedown', handleClickOutside);
-	// 	};
-	// }, []);
 
-	// const toggleMenu = () => {
-	// 	setIsOpen(!isOpen);
-	// };
 	const handleButtonClick = (action) => {
 		setAction(action);
 		openModal();
@@ -96,16 +74,10 @@ const CabinActions = ({ cabin }) => {
 			)}
 			{showModal && action == 'duplicate' && (
 				<Modal onClose={closeModal}>
-					<div className='p-12'>
-						are you sure to duplicate
-						<BrandButton
-							onClick={() => {
-								duplicateCabinHandler();
-								closeModal();
-							}}>
-							duplicate
-						</BrandButton>
-					</div>
+					<ConfrimDuplicate
+						onClose={closeModal}
+						onDuplicate={duplicateCabinHandler}
+					/>
 				</Modal>
 			)}
 		</div>
