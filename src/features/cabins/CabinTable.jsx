@@ -58,14 +58,6 @@ function CabinTable() {
 					</tbody>
 				</table>
 			</div>
-			<BrandButton sx={'m-4'} onClick={openModal}>
-				Add new cabin
-			</BrandButton>
-			{isModalOpen && (
-				<Modal onClose={closeModal}>
-					<CabinForm />
-				</Modal>
-			)}
 		</div>
 	);
 }

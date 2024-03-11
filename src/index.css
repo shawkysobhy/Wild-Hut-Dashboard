@@ -41,6 +41,9 @@ body {
 	.section-wrapper {
 		@apply w-full px-4 py-8 md:px-16 md:py-16 space-y-10 max-w-[1280px] mx-auto h-auto min-h-[80vh];
 	}
+	.small-button-table {
+		@apply block w-full px-10 py-5 text-gray-600 hover:bg-gray-200 focus:outline-none;
+	}
 }
 
 .navLink.active {

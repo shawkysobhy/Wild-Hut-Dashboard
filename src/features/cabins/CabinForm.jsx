@@ -2,16 +2,39 @@ import { useForm } from 'react-hook-form';
 import StyledLabel from '../../ui/StyledLabel';
 import BrandButton from '../../ui/BrandButton';
 import CabinFormRow from './CabinFormRow';
-function CabinForm() {
+import useCreateCabin from './useCreateCabin';
+import useEditCabin from './useEditCabin';
+function CabinForm({ editableCabin = {}, onClose }) {
+	const { isCreating, createCabinMutate } = useCreateCabin();
+	const { id: editableCabinId, ...editCabinValues } = editableCabin;
+	const { editCabin } = useEditCabin();
+	const isEditForm = Boolean(editableCabinId);
 	const {
 		register,
 		handleSubmit,
 		getValues,
 		reset,
 		formState: { errors },
-	} = useForm();
+	} = useForm({ defaultValues: isEditForm ? editCabinValues : {} });
 	const onSubmit = (data) => {
-		console.log('data', data);
+		if (isEditForm) {
+			editCabin(
+				{ cabin: data, id: editableCabinId },
+				{
+					onSuccess: () => {
+						reset();
+						onClose();
+					},
+				}
+			);
+		} else {
+			createCabinMutate(data, {
+				onSuccess: () => {
+					reset();
+					onClose();
+				},
+			});
+		}
 	};
 
 	return (
@@ -74,9 +97,14 @@ function CabinForm() {
 				<input
 					{...register('discount', {
 						required: "can't be empty",
-						validate: (value) =>
-							value <= getValues('price') ||
-							'Discount should be less than regular price',
+						validate: (value) => {
+							const numericDiscount = Number(value);
+							const numericPrice = Number(getValues('price'));
+							return (
+								numericDiscount < numericPrice ||
+								'Discount should be less than regular price'
+							);
+						},
 						min: { value: 0, message: 'discount can not less than zero' },
 						pattern: {
 							value: /^[0-9]*$/,
@@ -98,7 +126,7 @@ function CabinForm() {
 				<div>{errors && errors?.description?.message}</div>
 			</CabinFormRow>
 			<BrandButton type='submit' sx={'my-4'}>
-				{'Add Cabin'}
+				{isCreating ? 'createing cabin' : 'Add Cabin'}
 			</BrandButton>
 		</form>
 	);

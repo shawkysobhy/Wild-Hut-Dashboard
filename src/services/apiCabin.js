@@ -19,15 +19,13 @@ export async function deleteCabins(id) {
 
 	return data;
 }
-export async function createUpdateCabin(cabin, id) {
-	console.log('create cabin', cabin, id);
+export async function createUpdateCabin(cabin, id = null) {
+	console.log('serviece', cabin, id);
 	let baseQuery = supabase.from('cabins');
 	if (!id) {
-		// incase of create
 		baseQuery = baseQuery.insert([cabin]);
 	}
 	if (id) {
-		//in case of update
 		baseQuery = baseQuery.update(cabin).eq('id', id);
 	}
 
