@@ -77,7 +77,7 @@ function CabinForm({ editableCabin = {}, onClose }) {
 			<CabinFormRow>
 				<StyledLabel>Regular price</StyledLabel>
 				<input
-					{...register('price', {
+					{...register('regularPrice', {
 						required: "can't be empty",
 						min: {
 							value: 0,
@@ -91,7 +91,7 @@ function CabinForm({ editableCabin = {}, onClose }) {
 					type='number'
 					className='px-5 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-indigo-500'
 				/>
-				<div>{errors && errors?.price?.message}</div>
+				<div>{errors && errors?.regularPrice?.message}</div>
 			</CabinFormRow>
 			<CabinFormRow>
 				<StyledLabel>Discount</StyledLabel>
@@ -100,7 +100,7 @@ function CabinForm({ editableCabin = {}, onClose }) {
 						required: "can't be empty",
 						validate: (value) => {
 							const numericDiscount = Number(value);
-							const numericPrice = Number(getValues('price'));
+							const numericPrice = Number(getValues('regularPrice'));
 							return (
 								numericDiscount < numericPrice ||
 								'Discount should be less than regular price'

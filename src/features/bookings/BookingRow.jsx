@@ -11,8 +11,8 @@ function BookingRow({
 		created_at,
 		startDate,
 		endDate,
-		nightsNum,
-		guestNum,
+		numNights,
+		numGuests,
 		totalPrice,
 		status,
 		guests: { fullName: guestName, email },
@@ -21,7 +21,7 @@ function BookingRow({
 }) {
 	const navigate = useNavigate();
 	const statusToTagName = {
-		'unconfirmed': 'blue',
+		unconfirmed: 'blue',
 		'checked-in': 'green',
 		'checked-out': 'gray',
 	};
@@ -42,7 +42,7 @@ function BookingRow({
 					{isToday(new Date(startDate))
 						? 'Today'
 						: formatDistanceFromNow(startDate)}{' '}
-					&rarr; {nightsNum} night stay
+					&rarr; {numNights} night stay
 				</span>
 				<span className='text-[12px]'>
 					{format(new Date(startDate), 'MMM dd yyyy')} &mdash;{' '}

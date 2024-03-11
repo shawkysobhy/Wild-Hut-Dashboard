@@ -2,15 +2,24 @@ import { getToday } from '../utils/helpers';
 import supabase from './supabase';
 
 export async function getBookings({ filter, sortBy, page }) {
+	console.log('page', page);
 	let query = supabase
 		.from('bookings')
 		.select(
-			'id,created_at,startDate,endDate,nightsNum,guestNum,status,totalPrice,cabins(name),guests(fullName,email)',
+			'id,created_at,startDate,endDate,numNights,observations,numGuests,status,totalPrice,cabins(name),guests(fullName,email)',
 			{ count: 'exact' }
 		);
 	if (filter) {
 		query = query.eq(filter.field, filter.value);
 	}
+	// if (filter) query = query[filter.method || 'eq'](filter.field, filter.value);
+
+	// if (sortBy) {
+	// 	query = query.order(sortBy.sortFiled, {
+	// 		ascending: sortBy.sortDirection === 'asc',
+	// 	});
+	// }
+
 	if (sortBy) {
 		query = query.order(sortBy.sortFiled, {
 			ascending: sortBy.sortDirection === 'asc',

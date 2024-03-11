@@ -22,11 +22,11 @@ const CabinActions = ({ cabin }) => {
 	};
 	const { createCabinMutate } = useCreateCabin();
 	const duplicateCabinHandler = () => {
-		const { name, maxCapacity, price, discount, description } = cabin;
+		const { name, maxCapacity, regularPrice, discount, description } = cabin;
 		createCabinMutate({
 			name,
 			maxCapacity,
-			price,
+			regularPrice,
 			discount,
 			description,
 		});

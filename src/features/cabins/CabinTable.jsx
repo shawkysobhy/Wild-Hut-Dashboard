@@ -1,24 +1,10 @@
 import CabinRow from './CabinRow';
-import BrandButton from '../../ui/BrandButton';
 import { useSearchParams } from 'react-router-dom';
 import { useCabins } from './useCabins';
 import Spinner from '../../ui/Spinner';
-import { useState } from 'react';
-import CabinForm from './CabinForm';
-import Modal from '../../ui/Modal';
 function CabinTable() {
 	const [searchParams] = useSearchParams();
 	const { cabins, isLoading } = useCabins();
-	const [isModalOpen, setIsModalOpen] = useState(false);
-
-	const openModal = () => {
-		setIsModalOpen(true);
-	};
-
-	const closeModal = () => {
-		setIsModalOpen(false);
-	};
-
 	if (isLoading) return <Spinner />;
 	const filterValue = searchParams.get('discount') || 'all';
 	let filterCabins = cabins;
