@@ -1,5 +1,5 @@
 import StyledButton from './StyledButton';
-function ConfirmDelete({ resourseName, onConfrimDelete, onClose }) {
+function ConfirmDeleteBooking({ resourseName, onConfrimDelete, onClose }) {
 	return (
 		<div className=' w-[480px] px-16 bg-white py-14 rounded-lg'>
 			<div className='flex flex-col space-y-5'>
@@ -25,4 +25,4 @@ function ConfirmDelete({ resourseName, onConfrimDelete, onClose }) {
 	);
 }
 
-export default ConfirmDelete;
+export default ConfirmDeleteBooking;

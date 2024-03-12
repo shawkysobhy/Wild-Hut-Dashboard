@@ -2,35 +2,19 @@ import { useState } from 'react';
 import { LuMoreVertical } from 'react-icons/lu';
 import { AiFillEdit, AiFillDelete, AiFillCopy } from 'react-icons/ai';
 import Modal from '../../ui/Modal';
-import CabinForm from './CabinForm';
-import useDeleteCabin from './useDeleteCabin';
-import ConfirmDelete from '../../ui/ConfirmDelete';
 import useMenu from '../../hooks/useMenu';
-import useCreateCabin from './useCreateCabin';
 import useModal from '../../hooks/useModal';
-import ConfrimDuplicate from '../../ui/ConfrimDuplicate';
 import SmallButtonTable from '../../ui/SmallButtonTable';
-const CabinActions = ({ cabin }) => {
+import ConfirmDelete from '../../ui/ConfirmDelete';
+const BookingActions = ({ booking }) => {
 	const { showModal, openModal, closeModal } = useModal();
 	const { isOpen, setIsOpen, menuRef, toggleMenu } = useMenu();
 	const [action, setAction] = useState();
-	const { deleteCabin } = useDeleteCabin();
 
 	const handleButtonClick = (action) => {
 		setAction(action);
 		openModal();
 		setIsOpen(false);
-	};
-	const { createCabinMutate } = useCreateCabin();
-	const duplicateCabinHandler = () => {
-		const { name, maxCapacity, regularPrice, discount, description } = cabin;
-		createCabinMutate({
-			name,
-			maxCapacity,
-			regularPrice,
-			discount,
-			description,
-		});
 	};
 	return (
 		<div className='relative'>
@@ -44,18 +28,18 @@ const CabinActions = ({ cabin }) => {
 					ref={menuRef}
 					className='absolute top-0 right-0 z-20 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg '>
 					<SmallButtonTable
-						onClick={() => handleButtonClick('edit')}
+						onClick={() => handleButtonClick('seeDetails')}
 						icon={
 							<AiFillEdit className='flex-shrink-0 w-8 h-8 text-gray-400' />
 						}>
-						Edit
+						See Details
 					</SmallButtonTable>
 					<SmallButtonTable
-						onClick={() => handleButtonClick('duplicate')}
+						onClick={() => handleButtonClick('checkin')}
 						icon={
 							<AiFillCopy className='flex-shrink-0 w-8 h-8 text-gray-400' />
 						}>
-						Duplicate
+						Check in
 					</SmallButtonTable>
 					<SmallButtonTable
 						onClick={() => handleButtonClick('delete')}
@@ -66,30 +50,14 @@ const CabinActions = ({ cabin }) => {
 					</SmallButtonTable>
 				</div>
 			)}
-			{showModal && action == 'edit' && (
-				<Modal onClose={closeModal}>
-					<CabinForm editableCabin={cabin} onClose={closeModal} />
-				</Modal>
-			)}
+
 			{showModal && action == 'delete' && (
 				<Modal onClose={closeModal}>
-					<ConfirmDelete
-						resourseName={'Cabin'}
-						onConfrimDelete={() => deleteCabin(cabin.id)}
-						onClose={closeModal}
-					/>
-				</Modal>
-			)}
-			{showModal && action == 'duplicate' && (
-				<Modal onClose={closeModal}>
-					<ConfrimDuplicate
-						onClose={closeModal}
-						onDuplicate={duplicateCabinHandler}
-					/>
+					<ConfirmDelete resourseName={'booking'} />{' '}
 				</Modal>
 			)}
 		</div>
 	);
 };
 
-export default CabinActions;
+export default BookingActions;

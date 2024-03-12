@@ -24,7 +24,7 @@ function Pagination({ count }) {
 	};
 	if (count <= 10) return null;
 	return (
-		<div className='flex items-center justify-between'>
+		<div className='flex items-center space-x-4 md:justify-between'>
 			<p className='ml-3 text-[1.4rem] text-gray-700'>
 				{'showing '}{' '}
 				<span className='font-semibold'>

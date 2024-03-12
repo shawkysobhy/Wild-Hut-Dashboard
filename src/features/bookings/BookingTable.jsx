@@ -26,11 +26,15 @@ function BookingTable() {
 						{sortedBooking?.map((booking) => (
 							<BookingRow booking={booking} key={booking.id} />
 						))}
+						<tr>
+							<td>
+								<div className='p-8 bg-gray-100 border border-gray-200 rounde-b-md '>
+									<Pagination count={count} />
+								</div>
+							</td>
+						</tr>
 					</tbody>
 				</table>
-				<div className='p-8 bg-gray-100 border border-gray-200 rounde-b-md '>
-					<Pagination count={count} />
-				</div>
 			</div>
 		</div>
 	);

@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { LuMoreVertical } from 'react-icons/lu';
 import { formatDistanceFromNow } from '../../utils/helpers';
 
 import { format, isToday } from 'date-fns';
 import { formatCurrency } from '../../utils/helpers';
 import Tag from '../../ui/Tag';
+import BookingActions from './BookingActions';
 function BookingRow({
 	booking: {
 		id: bookingId,
@@ -54,7 +54,7 @@ function BookingRow({
 			</td>
 			<td className='font-medium font-sono'>{formatCurrency(totalPrice)}</td>
 			<td>
-				<LuMoreVertical width={'100%'} />
+				<BookingActions />
 			</td>
 		</tr>
 	);

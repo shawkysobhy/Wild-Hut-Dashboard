@@ -1,10 +1,10 @@
-function SmallButtonTable({ icon: Icon, onClick, label }) {
+function SmallButtonTable({ icon, onClick, children }) {
 	return (
 		<button
 			className='block w-full px-10 py-5 text-gray-600 hover:bg-gray-200 focus:outline-none'
 			onClick={onClick}>
 			<div className='flex items-center space-x-6'>
-				<Icon className='flex-shrink-0 w-8 h-8 ' /> <p>{label}</p>
+				{icon} <p>{children}</p>
 			</div>
 		</button>
 	);

@@ -9,7 +9,7 @@ function Cabins() {
 	const { showModal, closeModal, openModal } = useModal();
 	return (
 		<div className=' section-wrapper'>
-			<div className='flex flex-col items-start justify-between space-y-4 md:px-8 md:flex-row md:space-y-0'>
+			<div className='flex flex-col flex-wrap items-start justify-between space-y-4 md:px-8 md:flex-row md:space-y-0'>
 				<StyledTitle>All cabins</StyledTitle>
 				<CabinTableOperations />
 			</div>
