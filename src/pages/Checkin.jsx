@@ -1,5 +1,10 @@
+import CheckinBooking from '../features/check-in-out/CheckinBooking';
 function Checkin() {
-	return <div>Checkin</div>;
+	return (
+		<div className='section-wrapper'>
+			<CheckinBooking />
+		</div>
+	);
 }
 
 export default Checkin;

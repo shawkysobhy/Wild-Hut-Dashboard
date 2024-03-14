@@ -5,7 +5,7 @@ export const paths = {
 	bookings: '/bookings',
 	account: '/account',
 	users: '/users',
-	check: '/check',
+	checkin: '/checkin/:bookingId',
 	login: '/login',
 	settings: '/settings',
 	booking: '/bookings/:bookingId',

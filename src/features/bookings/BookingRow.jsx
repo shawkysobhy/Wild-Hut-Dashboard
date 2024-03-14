@@ -51,7 +51,7 @@ function BookingRow({
 			</td>
 			<td className='font-medium font-sono'>{formatCurrency(totalPrice)}</td>
 			<td>
-				<BookingActions bookingId={bookingId} />
+				<BookingActions bookingId={bookingId} status={status} />
 			</td>
 		</tr>
 	);

@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import { LuMoreVertical } from 'react-icons/lu';
-import { AiFillEdit, AiFillDelete, AiFillCopy } from 'react-icons/ai';
+import {
+	HiArrowDownOnSquare,
+	HiArrowUpOnSquare,
+	HiEye,
+	HiTrash,
+} from 'react-icons/hi2';
+
 import Modal from '../../ui/Modal';
 import useMenu from '../../hooks/useMenu';
 import useModal from '../../hooks/useModal';
 import SmallButtonTable from '../../ui/SmallButtonTable';
 import ConfirmDelete from '../../ui/ConfirmDelete';
 import { useNavigate } from 'react-router-dom';
-const BookingActions = ({ bookingId }) => {
+const BookingActions = ({ bookingId, status }) => {
 	const { showModal, openModal, closeModal } = useModal();
 	const { isOpen, setIsOpen, menuRef, toggleMenu } = useMenu();
 	const [action, setAction] = useState();
@@ -15,6 +21,9 @@ const BookingActions = ({ bookingId }) => {
 
 	const bookingNavigateHandler = () => {
 		navigate(`/bookings/${bookingId}`);
+	};
+	const checkinNavigateHandler = () => {
+		navigate(`/checkin/${bookingId}`);
 	};
 	const handleButtonClick = (action) => {
 		setAction(action);
@@ -34,23 +43,30 @@ const BookingActions = ({ bookingId }) => {
 					className='absolute top-0 right-0 z-20 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg '>
 					<SmallButtonTable
 						onClick={bookingNavigateHandler}
-						icon={
-							<AiFillEdit className='flex-shrink-0 text-gray-400 w-7 h-7' />
-						}>
+						icon={<HiEye className='flex-shrink-0 text-gray-400 w-7 h-7' />}>
 						See Details
 					</SmallButtonTable>
-					<SmallButtonTable
-						onClick={() => handleButtonClick('checkin')}
-						icon={
-							<AiFillCopy className='flex-shrink-0 text-gray-400 w-7 h-7' />
-						}>
-						Check in
-					</SmallButtonTable>
+					{status == 'unconfirmed' && (
+						<SmallButtonTable
+							onClick={checkinNavigateHandler}
+							icon={
+								<HiArrowDownOnSquare className='flex-shrink-0 text-gray-400 w-7 h-7' />
+							}>
+							Check in
+						</SmallButtonTable>
+					)}
+					{status == 'checked-out' && (
+						<SmallButtonTable
+							onClick={checkinNavigateHandler}
+							icon={
+								<HiArrowUpOnSquare className='flex-shrink-0 text-gray-400 w-7 h-7' />
+							}>
+							Check out
+						</SmallButtonTable>
+					)}
 					<SmallButtonTable
 						onClick={() => handleButtonClick('delete')}
-						icon={
-							<AiFillDelete className='flex-shrink-0 text-gray-400 w-7 h-7' />
-						}>
+						icon={<HiTrash className='flex-shrink-0 text-gray-400 w-7 h-7' />}>
 						Delete
 					</SmallButtonTable>
 				</div>
