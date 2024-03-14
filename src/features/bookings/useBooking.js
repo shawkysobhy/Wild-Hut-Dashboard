@@ -12,7 +12,7 @@ export const useBooking = () => {
 		isLoading,
 		error,
 	} = useQuery({
-		queryKey: ['booking'],
+		queryKey: ['booking',bookingId],
 		queryFn: () => getBooking(bookingId),
 		onError: (error) => toast.error(error.message),
 		retry: false,

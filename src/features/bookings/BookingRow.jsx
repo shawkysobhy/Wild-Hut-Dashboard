@@ -16,7 +16,7 @@ function BookingRow({
 		totalPrice,
 		status,
 		guests: { fullName: guestName, email },
-		cabins: { name: cabinName },
+		cabins: { name },
 	},
 }) {
 	const statusTagName = {
@@ -29,13 +29,13 @@ function BookingRow({
 		<tr
 			key={bookingId}
 			className=' grid  py-5 px-10 grid-cols-[.6fr_2fr_2.4fr_1.4fr_1fr_3.2rem]    gap-x-8 border-b border-gray-100 justify-center items-center text-left'>
-			<td className='text-2xl font-semibold font-sono'>{cabinName}</td>
+			<td className='text-2xl font-semibold font-sono'>{name}</td>
 			<td className='flex flex-col'>
-				<span className='font-semibold'>{guestName}</span>
+				<span className=''>{guestName}</span>
 				<span>{email}</span>
 			</td>
 			<td className='flex flex-col text-nowrap'>
-				<span className='font-semibold '>
+				<span className='font-medium'>
 					{isToday(new Date(startDate))
 						? 'Today'
 						: formatDistanceFromNow(startDate)}{' '}

@@ -1,7 +1,6 @@
 import { format, isToday } from 'date-fns';
 import { formatDistanceFromNow, formatCurrency } from '../../utils/helpers';
 import Flag from '../../ui/Flag';
-
 import {
 	// HiOutlineChatBubbleBottomCenterText,
 	HiOutlineCheckCircle,
@@ -24,6 +23,7 @@ function BookingData({ booking }) {
 		guests: { fullName: guestName, email, country, countryFlag, nationalID },
 		cabins: { name: cabinName },
 	} = booking;
+	console.log('isPaid', isPaid);
 	return (
 		<div className='overflow-hidden bg-white border rounded-lg '>
 			<header className='flex flex-col  space-y-6 md:space-y-0 px-8 py-6   md:items-center md:justify-between  md:px-16 md:py-8 font-medium bg-indigo-500 text-[#e0e7ff] text-2xl md:text-3xl md:flex-row'>
@@ -57,7 +57,12 @@ function BookingData({ booking }) {
 					<p className='font-semibold'>Breakfast included?</p>
 					{hasBreakfast ? 'Yes' : 'No'}
 				</div>
-				<div className='flex flex-col px-8 py-6 mt-10 text-yellow-700 bg-yellow-100 rounded-lg md:flex-row md:items-center md:justify-between md:px-12 flex-ocl md:py-7'>
+				<div
+					className={`flex flex-col px-8 py-6 mt-10 ${
+						isPaid
+							? 'text-green-700 bg-green-100'
+							: 'text-yellow-700 bg-yellow-100 '
+					} rounded-lg md:flex-row md:items-center md:justify-between md:px-12 flex-ocl md:py-7`}>
 					<div className='flex flex-col py-4 space-y-3 md:space-x-4 md:flex-row md:space-y-0 smd:items-center'>
 						<div className='flex '>
 							<HiOutlineCurrencyDollar className='w-10 h-10' />
