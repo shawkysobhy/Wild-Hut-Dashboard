@@ -1,13 +1,14 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import {
 	Account,
-	Booking,
+	Bookings,
 	Cabins,
 	Checkin,
 	Dashboard,
 	Login,
 	PageNotFound,
 	Settings,
+	Booking,
 	Users,
 } from './pages';
 import Layout from './Layout';
@@ -30,8 +31,8 @@ const router = createBrowserRouter([
 				element: <Cabins />,
 			},
 			{
-				path: paths.booking,
-				element: <Booking />,
+				path: paths.bookings,
+				element: <Bookings />,
 			},
 			{
 				path: paths.account,
@@ -53,6 +54,7 @@ const router = createBrowserRouter([
 				path: paths.settings,
 				element: <Settings />,
 			},
+			{ path: paths.booking, element: <Booking /> },
 		],
 	},
 	{

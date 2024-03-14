@@ -28,9 +28,9 @@ function Sidebar() {
 					<HiOutlineHome className='styledNav-icon' />
 					<span>Home</span>
 				</StyledNav>
-				<StyledNav to={paths.booking}>
+				<StyledNav to={paths.bookings}>
 					<HiCalendar className='styledNav-icon' />
-					<span>Booking</span>
+					<span>Bookings</span>
 				</StyledNav>
 				<StyledNav to={paths.settings}>
 					<HiOutlineCog6Tooth className='styledNav-icon' />

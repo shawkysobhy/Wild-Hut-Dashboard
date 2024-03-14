@@ -6,11 +6,16 @@ import useMenu from '../../hooks/useMenu';
 import useModal from '../../hooks/useModal';
 import SmallButtonTable from '../../ui/SmallButtonTable';
 import ConfirmDelete from '../../ui/ConfirmDelete';
-const BookingActions = ({ booking }) => {
+import { useNavigate } from 'react-router-dom';
+const BookingActions = ({ bookingId }) => {
 	const { showModal, openModal, closeModal } = useModal();
 	const { isOpen, setIsOpen, menuRef, toggleMenu } = useMenu();
 	const [action, setAction] = useState();
+	const navigate = useNavigate();
 
+	const bookingNavigateHandler = () => {
+		navigate(`/bookings/${bookingId}`);
+	};
 	const handleButtonClick = (action) => {
 		setAction(action);
 		openModal();
@@ -28,23 +33,23 @@ const BookingActions = ({ booking }) => {
 					ref={menuRef}
 					className='absolute top-0 right-0 z-20 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg '>
 					<SmallButtonTable
-						onClick={() => handleButtonClick('seeDetails')}
+						onClick={bookingNavigateHandler}
 						icon={
-							<AiFillEdit className='flex-shrink-0 w-8 h-8 text-gray-400' />
+							<AiFillEdit className='flex-shrink-0 text-gray-400 w-7 h-7' />
 						}>
 						See Details
 					</SmallButtonTable>
 					<SmallButtonTable
 						onClick={() => handleButtonClick('checkin')}
 						icon={
-							<AiFillCopy className='flex-shrink-0 w-8 h-8 text-gray-400' />
+							<AiFillCopy className='flex-shrink-0 text-gray-400 w-7 h-7' />
 						}>
 						Check in
 					</SmallButtonTable>
 					<SmallButtonTable
 						onClick={() => handleButtonClick('delete')}
 						icon={
-							<AiFillDelete className='flex-shrink-0 w-8 h-8 text-gray-400' />
+							<AiFillDelete className='flex-shrink-0 text-gray-400 w-7 h-7' />
 						}>
 						Delete
 					</SmallButtonTable>

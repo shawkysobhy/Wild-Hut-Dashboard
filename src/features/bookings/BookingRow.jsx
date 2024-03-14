@@ -19,15 +19,12 @@ function BookingRow({
 		cabins: { name: cabinName },
 	},
 }) {
-	const navigate = useNavigate();
-	const statusToTagName = {
-		unconfirmed: 'blue',
+	const statusTagName = {
+		unconfirmed: 'sky',
 		'checked-in': 'green',
 		'checked-out': 'gray',
 	};
-	const bookingNavigateHandler = () => {
-		navigate(`/bookings/${bookingId}`);
-	};
+
 	return (
 		<tr
 			key={bookingId}
@@ -50,11 +47,11 @@ function BookingRow({
 				</span>
 			</td>
 			<td className=''>
-				<Tag type={statusToTagName[status]}>{status.replace('-', ' ')}</Tag>
+				<Tag type={statusTagName[status]}>{status.replace('-', ' ')}</Tag>
 			</td>
 			<td className='font-medium font-sono'>{formatCurrency(totalPrice)}</td>
 			<td>
-				<BookingActions />
+				<BookingActions bookingId={bookingId} />
 			</td>
 		</tr>
 	);

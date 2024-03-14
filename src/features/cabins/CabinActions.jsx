@@ -46,21 +46,21 @@ const CabinActions = ({ cabin }) => {
 					<SmallButtonTable
 						onClick={() => handleButtonClick('edit')}
 						icon={
-							<AiFillEdit className='flex-shrink-0 w-8 h-8 text-gray-400' />
+							<AiFillEdit className='flex-shrink-0 text-gray-400 w-7 h-7' />
 						}>
 						Edit
 					</SmallButtonTable>
 					<SmallButtonTable
 						onClick={() => handleButtonClick('duplicate')}
 						icon={
-							<AiFillCopy className='flex-shrink-0 w-8 h-8 text-gray-400' />
+							<AiFillCopy className='flex-shrink-0 text-gray-400 w-7 h-7' />
 						}>
 						Duplicate
 					</SmallButtonTable>
 					<SmallButtonTable
 						onClick={() => handleButtonClick('delete')}
 						icon={
-							<AiFillDelete className='flex-shrink-0 w-8 h-8 text-gray-400' />
+							<AiFillDelete className='flex-shrink-0 text-gray-400 w-7 h-7' />
 						}>
 						Delete
 					</SmallButtonTable>
