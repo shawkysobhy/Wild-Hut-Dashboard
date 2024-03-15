@@ -12,11 +12,15 @@ function ConfirmDelete({ resourseName, onConfrimDelete, onClose }) {
 				</p>
 				<div className='flex items-center justify-end space-x-4'>
 					<StyledButton
+						color={'white'}
 						onClick={() => onClose()}
 						sx={'bg-gray-300 text-gray-900'}>
 						Cancel
 					</StyledButton>
-					<StyledButton onClick={onConfrimDelete} sx={'bg-red-700 text-white'}>
+					<StyledButton
+						color={'red'}
+						onClick={onConfrimDelete}
+						sx={'bg-red-700 text-white'}>
 						Delete
 					</StyledButton>
 				</div>

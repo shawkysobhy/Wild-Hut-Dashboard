@@ -10,16 +10,16 @@ import { useSettings } from '../settings/useSettings';
 import { useEffect, useState } from 'react';
 import useCheckin from './useCheckin';
 import Checkbox from '../../ui/CheckBox';
+import useCheckout from './useCheckout';
 function CheckinBooking() {
 	const [confirmPaid, setConfirmPaid] = useState(false);
 	const { checkin, isChecking } = useCheckin();
+	const { checkout, isCheckingOut } = useCheckout();
 	const [addBreakfast, setAddBreakfast] = useState(false);
-
 	const { isLoading, booking } = useBooking();
 	const { settings, isLoading: isLoadingSettings } = useSettings();
 	const moveBack = useMoveBack();
 	useEffect(() => setConfirmPaid(booking?.isPaid ?? false), [booking]);
-
 	if (isLoading || isLoadingSettings) return <Spinner />;
 	const { id, status } = booking;
 	const {
@@ -48,10 +48,6 @@ function CheckinBooking() {
 			checkin({ bookingId, breakfast: {} });
 		}
 	}
-	const checkinHandler = () => {
-		if (!confirmPaid) return;
-		checkin(bookingId);
-	};
 	return (
 		<div className='flex flex-col max-w-[1200px] mx-auto space-y-12'>
 			<div className='flex items-center justify-between'>
@@ -66,8 +62,8 @@ function CheckinBooking() {
 				</button>
 			</div>
 			<BookingData booking={booking} />
-			<div className='px-16 py-10 bg-white border border-gray-100 rounded-md'>
-				{!hasBreakfast && (
+			{!hasBreakfast && (
+				<div className='px-16 py-10 bg-white border border-gray-100 rounded-md'>
 					<Checkbox
 						id='breakfast'
 						checked={addBreakfast}
@@ -77,8 +73,9 @@ function CheckinBooking() {
 						}}>
 						Want to add breakfast for {formatCurrency(optionalBreakfastPrice)}
 					</Checkbox>
-				)}
-			</div>
+				</div>
+			)}
+
 			<div className='px-16 py-10 bg-white border border-gray-100 rounded-md'>
 				<Checkbox
 					id='confirm'
@@ -97,13 +94,26 @@ function CheckinBooking() {
 				</Checkbox>
 			</div>
 			<div className='flex items-center ml-auto space-x-4'>
-				<StyledButton
-					color='indigo'
-					onClick={handleCheckin}
-					disabled={!confirmPaid || isChecking}>
-					Check in booking #{id}
+				{status == 'unconfirmed' && (
+					<StyledButton
+						color='indigo'
+						onClick={handleCheckin}
+						disabled={!confirmPaid || isChecking}>
+						Check in booking #{id}
+					</StyledButton>
+				)}
+
+				{status == 'checked-in' && (
+					<StyledButton
+						color='indigo'
+						onClick={() => checkout(bookingId)}
+						disabled={!confirmPaid || isCheckingOut}>
+						Check out booking #{id}
+					</StyledButton>
+				)}
+				<StyledButton color='white' onClick={moveBack}>
+					Back
 				</StyledButton>
-				<StyledButton color='white'>Back</StyledButton>
 			</div>
 		</div>
 	);

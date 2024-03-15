@@ -9,7 +9,7 @@ const Tag = ({ type, children }) => {
 	console.log(textColorClass, bgColorClass);
 	return (
 		<span
-			className={`inline-block uppercase font-semibold text-[12px] py-2 px-5 rounded-full ${colorVariants[type]}`}>
+			className={`inline-block text-nowrap uppercase font-semibold text-[12px] py-2 px-5 rounded-full ${colorVariants[type]}`}>
 			{children}
 		</span>
 	);

@@ -13,10 +13,14 @@ import useModal from '../../hooks/useModal';
 import SmallButtonTable from '../../ui/SmallButtonTable';
 import ConfirmDelete from '../../ui/ConfirmDelete';
 import { useNavigate } from 'react-router-dom';
+import useCheckout from '../check-in-out/useCheckout';
+import useDeleteBooking from './useDeleteBooking';
 const BookingActions = ({ bookingId, status }) => {
 	const { showModal, openModal, closeModal } = useModal();
+	const {  deleteBooking } = useDeleteBooking();
 	const { isOpen, setIsOpen, menuRef, toggleMenu } = useMenu();
 	const [action, setAction] = useState();
+	const { checkout, isCheckingOut } = useCheckout();
 	const navigate = useNavigate();
 
 	const bookingNavigateHandler = () => {
@@ -25,9 +29,10 @@ const BookingActions = ({ bookingId, status }) => {
 	const checkinNavigateHandler = () => {
 		navigate(`/checkin/${bookingId}`);
 	};
-	const handleButtonClick = (action) => {
-		setAction(action);
+	const handleDeleteBooking = () => {
 		openModal();
+		console.log(bookingId);
+		deleteBooking(bookingId);
 		setIsOpen(false);
 	};
 	return (
@@ -55,26 +60,31 @@ const BookingActions = ({ bookingId, status }) => {
 							Check in
 						</SmallButtonTable>
 					)}
-					{status == 'checked-out' && (
+					{status == 'checked-in' && (
 						<SmallButtonTable
-							onClick={checkinNavigateHandler}
+							disabled={isCheckingOut}
+							onClick={() => checkout(bookingId)}
 							icon={
 								<HiArrowUpOnSquare className='flex-shrink-0 text-gray-400 w-7 h-7' />
 							}>
 							Check out
 						</SmallButtonTable>
 					)}
+
 					<SmallButtonTable
-						onClick={() => handleButtonClick('delete')}
+						onClick={openModal}
 						icon={<HiTrash className='flex-shrink-0 text-gray-400 w-7 h-7' />}>
 						Delete
 					</SmallButtonTable>
 				</div>
 			)}
 
-			{showModal && action == 'delete' && (
+			{showModal && (
 				<Modal onClose={closeModal}>
-					<ConfirmDelete resourseName={'booking'} />{' '}
+					<ConfirmDelete
+						resourseName={'booking'}
+						onConfrimDelete={handleDeleteBooking}
+					/>{' '}
 				</Modal>
 			)}
 		</div>

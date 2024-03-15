@@ -16,7 +16,7 @@ const useCheckin = () => {
 		onSuccess: (data) => {
 			toast.success(`booking ${data.id} checked in ✅`);
 			queryClient.invalidateQueries({ active: true });
-			navigate('/dashboard');
+			navigate('/bookings');
 		},
 	});
 

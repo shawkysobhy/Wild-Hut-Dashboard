@@ -6,14 +6,16 @@ import { useBooking } from './useBooking';
 import Spinner from '../../ui/Spinner';
 import StyledButton from '../../ui/StyledButton';
 import BookingData from './BookingData';
+import useDeleteBooking from './useDeleteBooking';
 const statusTagName = {
 	unconfirmed: 'sky',
 	'checked-in': 'green',
 	'checked-out': 'gray',
 };
-
 function BookingDetails() {
 	const moveBack = useMoveBack();
+	const { deleteBooking } = useDeleteBooking();
+
 	const navigate = useNavigate();
 	const { isLoading, booking } = useBooking();
 	if (isLoading) return <Spinner />;
@@ -33,15 +35,35 @@ function BookingDetails() {
 			</div>
 			<BookingData booking={booking} />
 			<div className='flex flex-wrap ml-auto space-x-3 md:space-x-5'>
+				{status == 'unconfirmed' && (
+					<StyledButton
+						color='indigo'
+						onClick={() => {
+							navigate(`/checkin/${id}`);
+						}}>
+						Check in
+					</StyledButton>
+				)}
+				{status == 'checked-in' && (
+					<StyledButton
+						color='indigo'
+						onClick={() => {
+							navigate(`/checkin/${id}`);
+						}}>
+						Check out
+					</StyledButton>
+				)}
 				<StyledButton
-					color='indigo'
+					color='red'
 					onClick={() => {
-						navigate(`/checkin/${id}`);
+						deleteBooking(id);
+						navigate('/bookings');
 					}}>
-					Check in
+					Delete booking
 				</StyledButton>
-				<StyledButton color='red'>Delete booking</StyledButton>
-				<StyledButton color='white'>Back</StyledButton>
+				<StyledButton color='white' onClick={moveBack}>
+					Back
+				</StyledButton>
 			</div>
 		</div>
 	);
