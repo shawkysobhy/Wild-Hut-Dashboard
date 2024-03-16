@@ -1,4 +1,10 @@
-function StyledButton({ children, onClick, color, disabled = false }) {
+function StyledButton({
+	className,
+	children,
+	onClick,
+	color,
+	disabled = false,
+}) {
 	const variousColors = {
 		red: 'bg-red-700 text-red-100',
 		indigo: 'bg-indigo-600 text-green-50',
@@ -11,7 +17,7 @@ function StyledButton({ children, onClick, color, disabled = false }) {
 			onClick={onClick}
 			className={`  px-4  py-3 md:px-6 md:py-5 font-medium  text-[14px] rounded-md shadow-sm w-fit  hover:opacity-50 ${
 				variousColors[color]
-			}  ${disabled ? 'cursor-not-allowed opacity-50' : ''} `}>
+			}  ${disabled ? 'cursor-not-allowed opacity-50' : ''} ${className}`}>
 			{children}
 		</button>
 	);
