@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { getBookings } from '../../services/apiBookings';
 import { useSearchParams } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ function useBookings() {
 			: {
 					field: 'status',
 					value: filterValue,
-			};
+			  };
 	const sortValue = searchParams.get('sortBy') || 'startDate-desc';
 	const [sortFiled, sortDirection] = sortValue.split('-');
 	const sortBy = { sortFiled, sortDirection };
@@ -23,7 +23,7 @@ function useBookings() {
 		error: bookingError,
 		isLoading: isBookingLoading,
 	} = useQuery({
-		queryKey: ['bookings', filter, sortBy,page],
+		queryKey: ['bookings', filter, sortBy, page],
 		queryFn: () => getBookings({ filter, sortBy, page }),
 	});
 

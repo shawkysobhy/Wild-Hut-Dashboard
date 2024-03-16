@@ -1,6 +1,7 @@
 import { IoMenuSharp } from 'react-icons/io5';
 import { useContext } from 'react';
 import { Context } from '../context/AppContext';
+import Logout from '../features/authentication/Logout';
 function Header() {
 	const { setSidebarToggle } = useContext(Context);
 	return (
@@ -10,7 +11,7 @@ function Header() {
 				onClick={() => setSidebarToggle((prev) => !prev)}>
 				<IoMenuSharp style={{ height: 'auto', width: '30px' }} />
 			</button>
-			header
+			<Logout />
 		</div>
 	);
 }

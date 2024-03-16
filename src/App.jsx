@@ -17,12 +17,16 @@ import AppContextProvider from './context/AppContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Toaster } from 'react-hot-toast';
+import ProtectedRoutes from './ui/ProtectedRoutes';
 const router = createBrowserRouter([
 	{
-		path: '/',
-		element: <Layout />,
+		element: (
+			<ProtectedRoutes>
+				<Layout hideHeaderPaths={['/login']} />
+			</ProtectedRoutes>
+		),
 		children: [
-			{ index: true, path: '', element: <Dashboard /> },
+			{ index: true, path: '/', element: <Dashboard /> },
 			{
 				path: paths.dashboard,
 				element: <Dashboard />,
@@ -43,10 +47,7 @@ const router = createBrowserRouter([
 				path: paths.users,
 				element: <Users />,
 			},
-			{
-				path: paths.login,
-				element: <Login />,
-			},
+
 			{
 				path: paths.settings,
 				element: <Settings />,
@@ -55,6 +56,7 @@ const router = createBrowserRouter([
 			{ path: paths.checkin, element: <Checkin /> },
 		],
 	},
+	{ path: paths.login, element: <Login /> },
 	{
 		path: '*',
 		element: <PageNotFound />,
