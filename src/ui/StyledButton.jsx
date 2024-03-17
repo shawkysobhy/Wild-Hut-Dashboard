@@ -4,6 +4,7 @@ function StyledButton({
 	onClick,
 	color,
 	disabled = false,
+	type,
 }) {
 	const variousColors = {
 		red: 'bg-red-700 text-red-100',
@@ -13,6 +14,7 @@ function StyledButton({
 
 	return (
 		<button
+			type={type}
 			disabled={disabled}
 			onClick={onClick}
 			className={`  px-4  py-3 md:px-6 md:py-5 font-medium  text-[14px] rounded-md shadow-sm w-fit  hover:opacity-50 ${

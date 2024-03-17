@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form';
 import StyledButton from '../../ui/StyledButton';
-import { zodResolver } from '@hookform/resolvers/zod';
 import MiniSpinner from '../../ui/MiniSpinner';
 import useLogin from './useLogin';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 const schema = z.object({
 	email: z.string().email(),
