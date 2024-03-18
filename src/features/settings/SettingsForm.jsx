@@ -28,7 +28,7 @@ function SettingsForm() {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='px-16 py-10 overflow-hidden bg-white border border-gray-100 rounded-md text-5'>
+			className='px-16 py-10 overflow-hidden bg-white border border-gray-100 rounded-md '>
 			<FormGroup>
 				<StyledLabel>Minimum nights/booking</StyledLabel>
 				<input
