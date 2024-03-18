@@ -1,3 +1,6 @@
+# WildHut Dashboard 
+
+- WildHut Dashboard offers seamless guest booking management, encompassing check-ins, check-outs, and cabin data, all underpinned by robust authentication and authorization mechanisms for enhanced security and control.
 ## Technology Stack
 
 The WildHut Project Dashboard is built using the following technologies:
