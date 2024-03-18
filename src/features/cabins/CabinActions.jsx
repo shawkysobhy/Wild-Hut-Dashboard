@@ -35,14 +35,14 @@ const CabinActions = ({ cabin }) => {
 	return (
 		<div className='relative'>
 			<button
-				className='flex items-center justify-center w-10 h-10 text-gray-600 bg-gray-200 rounded-md hover:text-gray-800 focus:outline-none'
+				className='flex items-center justify-center w-10 h-10 rounded-md bg-border-light text-text hover:text-gray-800 focus:outline-none'
 				onClick={toggleMenu}>
 				<LuMoreVertical />
 			</button>
 			{isOpen && (
 				<div
 					ref={menuRef}
-					className='absolute top-0 right-0 z-20 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg '>
+					className='absolute top-0 right-0 z-20 mt-2 border rounded-lg shadow-lg border-border-dark bg-background '>
 					<SmallButtonTable
 						onClick={() => handleButtonClick('edit')}
 						icon={

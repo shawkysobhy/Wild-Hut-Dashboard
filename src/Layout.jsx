@@ -1,13 +1,15 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import { Sidebar } from './components';
 import Header from './components/Header';
+import { useContext } from 'react';
+import { Context } from './context/AppContext';
 function Layout({ hideHeaderPaths = [] }) {
 	const { pathname } = useLocation();
-
+	const { mode } = useContext(Context);
 	return (
-		<div className='block md:flex-row md:flex '>
+		<div className={`block ${mode} md:flex  min-h-screen`}>
 			<Sidebar />
-			<div className='flex flex-col flex-1 bg-gray-50'>
+			<div className='flex flex-col flex-1 bg-containerBackground'>
 				{!hideHeaderPaths.includes(pathname) && <Header />}
 				<Outlet />
 			</div>

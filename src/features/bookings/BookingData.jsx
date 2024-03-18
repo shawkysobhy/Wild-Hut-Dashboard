@@ -23,10 +23,9 @@ function BookingData({ booking }) {
 		guests: { fullName: guestName, email, country, countryFlag, nationalID },
 		cabins: { name: cabinName },
 	} = booking;
-	console.log('isPaid', isPaid);
 	return (
-		<div className='overflow-hidden bg-white border rounded-lg '>
-			<header className='flex flex-col  space-y-6 md:space-y-0 px-8 py-6   md:items-center md:justify-between  md:px-16 md:py-8 font-medium bg-indigo-500 text-[#e0e7ff] text-2xl md:text-3xl md:flex-row'>
+		<div className='overflow-hidden border rounded-lg bg-background '>
+			<header className='flex flex-col px-8 py-6 space-y-6 text-2xl font-medium md:space-y-0 md:items-center md:justify-between md:px-16 md:py-8 bg-brand-light text-ctaText md:text-3xl md:flex-row'>
 				<div className='flex items-center space-x-4 '>
 					<HiOutlineHomeModern className='flex-shrink-0 w-12 h-12' />
 					<p>
@@ -53,7 +52,7 @@ function BookingData({ booking }) {
 					<p>National ID {nationalID}</p>
 				</div>
 				<div className='flex items-center gap-4 py-3'>
-					<HiOutlineCheckCircle className='w-8 h-8 text-indigo-600' />
+					<HiOutlineCheckCircle className='w-8 h-8 text-brand-dark' />
 					<p className='font-semibold'>Breakfast included?</p>
 					{hasBreakfast ? 'Yes' : 'No'}
 				</div>
@@ -62,7 +61,7 @@ function BookingData({ booking }) {
 						isPaid
 							? 'text-green-700 bg-green-100'
 							: 'text-yellow-700 bg-yellow-100 '
-					} rounded-lg md:flex-row md:items-center md:justify-between md:px-12 flex-ocl md:py-7`}>
+					} rounded-lg md:flex-row md:items-center md:justify-between md:px-12  md:py-7`}>
 					<div className='flex flex-col py-4 space-y-3 md:space-x-4 md:flex-row md:space-y-0 smd:items-center'>
 						<div className='flex '>
 							<HiOutlineCurrencyDollar className='w-10 h-10' />
@@ -81,7 +80,7 @@ function BookingData({ booking }) {
 					</p>
 				</div>
 			</section>
-			<footer className='px-16 py-6 text-[16px] text-right text-gray-500'>
+			<footer className='px-16 py-6 text-base text-right text-gray-500'>
 				<p>Booked {format(new Date(created_at), 'EEE, MMM dd yyyy, p')}</p>
 			</footer>
 		</div>

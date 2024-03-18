@@ -1,17 +1,18 @@
 import { HiOutlineMoon, HiOutlineSun } from 'react-icons/hi2';
 import IconButton from './IconButton';
 // import ButtonIcon from './ButtonIcon';
+import { useContext } from 'react';
+import { Context } from '../context/AppContext';
 // import { useDarkMode } from '../context/DarkModeContext';
 const className = 'w-8 h-8 text-indigo-700';
 function DarkModeToggle() {
-	// const { isDarkMode, toggleDarkMode } = useDarkMode();
-	const isDarkMode = true;
+	const { mode, setMode } = useContext(Context);
 	return (
 		<IconButton>
-			{isDarkMode ? (
-				<HiOutlineSun className={className} />
+			{mode == 'dark' ? (
+				<HiOutlineSun className={className} onClick={() => setMode('light')} />
 			) : (
-				<HiOutlineMoon className={className} />
+				<HiOutlineMoon className={className} onClick={() => setMode('dark')} />
 			)}
 		</IconButton>
 	);

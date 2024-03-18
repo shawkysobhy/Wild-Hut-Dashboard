@@ -4,7 +4,7 @@ function IconButton({ isLoading = false, onClick, children }) {
 		<button
 			disabled={isLoading}
 			onClick={onClick}
-			className='p-4 rounded-md hover:bg-gray-200'>
+			className='p-4 rounded-md hover:bg-border-dark'>
 			{!isLoading ? children : <MiniSpinner />}
 		</button>
 	);

@@ -37,14 +37,14 @@ function UpdateUserDataForm() {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className='px-[40px] py-[24px] overflow-hidden bg-white border border-gray-100 rounded-md '>
+			className='px-16 py-10 overflow-hidden border rounded-md bg-background border-border '>
 			<FormGroup>
 				<StyledLabel>Email</StyledLabel>
 				<input
 					type='eamil'
 					disabled
 					value={email}
-					className='px-5 py-3 bg-gray-200 border border-gray-300 rounded-md shadow-sm cursor-not-allowed focus:outline-indigo-500'
+					className='px-5 py-3 bg-gray-300 border rounded-md shadow-sm cursor-not-allowed border-border focus:outline-brand-light'
 				/>
 			</FormGroup>
 			<FormGroup>
@@ -55,12 +55,12 @@ function UpdateUserDataForm() {
 					onChange={(e) => setFullName(e.target.value)}
 					id='fullName'
 					disabled={isUpdating}
-					className='px-5 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-indigo-500'
+					className='px-5 py-3 border rounded-md shadow-sm border-border focus:outline-brand-light'
 				/>{' '}
 			</FormGroup>
 			<FormGroup>
-				<h3 className='font-medium text-gray-600 text-[14px]'>avatar</h3>{' '}
-				<label className='relative inline-flex items-center gap-3 font-medium text-white'>
+				<h3 className='font-medium text-text text-[14px]'>avatar</h3>{' '}
+				<label className='relative inline-flex items-center gap-3 font-medium text-ctaText'>
 					<input
 						type='file'
 						id='avatar'
@@ -70,7 +70,7 @@ function UpdateUserDataForm() {
 						className='hidden'
 						// Additional props like onChange, accept, etc., can be added here
 					/>
-					<span className='px-3 py-2  text-[14px]text-white transition duration-300 bg-indigo-600 rounded-md cursor-pointer hover:bg-indigo-700'>
+					<span className='px-3 py-2  text-[14px] text-ctaText transition duration-300 bg-brand-light rounded-md cursor-pointer hover:opacity-50'>
 						Choose File
 					</span>
 				</label>

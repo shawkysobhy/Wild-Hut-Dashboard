@@ -3,7 +3,7 @@ function BrandButton({ children, onClick, sx, type }) {
 		<button
 			type={type}
 			onClick={onClick}
-			className={`px-6 py-5 font-semibold bg-indigo-600 border-none rounded-md shadow-sm w-fit text-indigo-50 hover:bg-indigo-800 ${sx}`}>
+			className={`px-6 py-5 font-medium bg-brand-light border-none rounded-md  text-sm shadow-sm w-fit text-ctaText hover:bg-brand-dark ${sx}`}>
 			{children}
 		</button>
 	);

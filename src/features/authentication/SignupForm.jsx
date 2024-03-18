@@ -28,7 +28,7 @@ function SignupForm() {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='px-16 py-10 overflow-hidden bg-white border border-gray-100 rounded-md text-5'>
+			className='px-16 py-10 overflow-hidden bg-white border border-border-md text-5'>
 			<FormGroup>
 				<StyledLabel>Full name</StyledLabel>
 				<input
@@ -112,8 +112,10 @@ function SignupForm() {
 				)}
 			</FormGroup>
 			<div className='flex items-center justify-end py-5 border-b border-gray-100 gap-x-10'>
-				<StyledButton type='reset'>Cancel</StyledButton>
-				<BrandButton>Add new user</BrandButton>
+				<StyledButton color='white' type='reset'>
+					Cancel
+				</StyledButton>
+				<StyledButton color='indigo'>Add new user</StyledButton>
 			</div>
 		</form>
 	);

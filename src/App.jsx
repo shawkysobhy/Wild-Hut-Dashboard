@@ -66,8 +66,8 @@ const queryClient = new QueryClient();
 export default function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
-			<ReactQueryDevtools />
 			<AppContextProvider>
+				<ReactQueryDevtools />
 				<RouterProvider router={router} />
 			</AppContextProvider>
 			<Toaster

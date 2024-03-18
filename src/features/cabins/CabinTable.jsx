@@ -25,11 +25,11 @@ function CabinTable() {
 		(a, b) => (a[sortType] - b[sortType]) * modifier
 	);
 	return (
-		<div className='overflow-x-auto max-w-screen'>
+		<div className='overflow-x-auto max-w-screen text-text'>
 			<div className='flex flex-col overflow-x-auto space-y-9 max-w-screen'>
-				<table className='border border-gray-200 rounded-md '>
-					<thead className='px-10 py-6 font-medium tracking-wide text-gray-600 border-b border-gray-100 bg-gray-50'>
-						<tr className='  py-5 px-10 grid text-left  grid-cols-[1fr_1fr_1fr_.6fr_0.5fr] gap-x-10 items-center	'>
+				<table className='border rounded-md border-border-dark'>
+					<thead className='px-10 py-6 text-sm tracking-wide border-b border-border-dark text-text '>
+						<tr className='bg-containerBackground  py-5 px-10 grid text-left  grid-cols-[1fr_1fr_1fr_.6fr_0.5fr] gap-x-10 items-center	'>
 							<th>Cabin</th>
 							<th>CAPACITY</th>
 							<th>PRICE</th>

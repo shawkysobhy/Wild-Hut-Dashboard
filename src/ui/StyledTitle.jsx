@@ -1,8 +1,6 @@
 function StyledTitle({ children }) {
 	return (
-		<h1 className='text-[3rem] font-bold leading-snug text-gray-700'>
-			{children}
-		</h1>
+		<h1 className='text-5xl font-bold leading-snug text-title'>{children}</h1>
 	);
 }
 

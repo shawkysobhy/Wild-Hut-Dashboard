@@ -11,8 +11,9 @@ import UserAvatar from '../features/authentication/UserAvatar';
 function Header() {
 	const { setSidebarToggle } = useContext(Context);
 	const navigate = useNavigate();
+
 	return (
-		<div className='flex items-center justify-between py-6 pl-4 pr-4 space-x-10 bg-white border-b border-gray-100 md:pr-20'>
+		<div className='flex items-center justify-between py-6 pl-4 pr-4 space-x-10 border-b bg-background border-border md:pr-20'>
 			<button
 				className='p-2 rounded-full hover:bg-gray-400 hover:text-white'
 				onClick={() => setSidebarToggle((prev) => !prev)}>

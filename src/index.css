@@ -1,16 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root {
-	/* Shadows */
-	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-	--shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
-	/* Other shadows... */
 
-	/* Border radius */
-	--border-radius-tiny: 3px;
-	--border-radius-sm: 5px;
-	/* Other border radius... */
+/* @layer base {
+	:root {
+		--containerBackground: 249 250 251;
+		--background: 255 255 255;
+		--border-dark: 229 231 235;
+		--border-light: 243 244 246;
+		--card: 255 255 255;
+		--text: 75 99 99;
+		--title: 55 65 81;
+		--ctaText: 238 242 255;
+		--brand-light: 79 70 229;
+		--brand-dark: 55 48 163;
+		--icon: 156 163 175;
+	}
+
+
+} */
+.light {
+	--containerBackground: 249 250 251;
+	--background: 255 255 255;
+	--border-dark: 229 231 235;
+	--border-light: 243 244 246;
+	--card: 255 255 255;
+	--text: 75 99 99;
+	--title: 55 65 81;
+	--ctaText: 238 242 255;
+	--brand-light: 79 70 229;
+	--brand-dark: 55 48 163;
+	--icon: 156 163 175;
+}
+.dark {
+	--containerBackground: 17 24 39;
+	--background: 24 33 47;
+	--border-dark: 55 65 81;
+	--border-light: 55 65 81;
+	--card: 255 255 255;
+	--text: 209 213 219;
+	--title: 229 231 235;
+	--ctaText: 238 242 255;
+	--brand-light: 79 70 229;
+	--brand-dark: 55 48 163;
+	--icon: 156 163 175;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -34,7 +67,6 @@ body {
 	min-height: 100vh;
 	line-height: 1.5;
 	font-size: 1.6rem;
-	color: #374151;
 }
 
 @layer components {
@@ -42,7 +74,7 @@ body {
 		@apply w-full px-8 py-8 md:px-16 md:py-16 space-y-10 max-w-[1280px] mx-auto h-auto min-h-[80vh];
 	}
 	.small-button-table {
-		@apply block w-full px-10 py-5 text-gray-600 hover:bg-gray-200 focus:outline-none;
+		@apply block w-full px-10 py-5 text-text hover:bg-gray-200 focus:outline-none;
 	}
 }
 

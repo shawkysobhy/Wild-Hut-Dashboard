@@ -11,20 +11,18 @@ import {
 	HiOutlineHomeModern,
 	HiOutlineUsers,
 } from 'react-icons/hi2';
-import { useContext } from 'react';
-import { Context } from '../context/AppContext';
-
+import useContextProvider from '../hooks/useContext';
 function Sidebar() {
-	const { sidbarToggle } = useContext(Context);
+	const { sidbarToggle } = useContextProvider();
 	return (
 		<nav
-			className={`w-[260px] min-h-screen  flex-col items-center space-y-12 py-12
-      px-10 border-r border-gray-100 
+			className={`w-[260px] min-h-screen bg-background flex-col items-center space-y-12 py-12
+      px-10 border-r border-border 
 			${sidbarToggle ? 'flex' : 'hidden'}
     `}>
 			<Logo />
 			<ul className='flex flex-col w-full p-0 m-0 space-y-4 list-none items-centerl items'>
-				<StyledNav to={paths.dashboard}>
+				<StyledNav activeClassName='bg-blue-500' to={paths.dashboard}>
 					<HiOutlineHome className='styledNav-icon' />
 					<span>Home</span>
 				</StyledNav>

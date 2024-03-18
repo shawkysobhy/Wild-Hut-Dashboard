@@ -1,10 +1,10 @@
 import StyledTitle from '../ui/StyledTitle';
 import CabinTableOperations from '../features/cabins/CabinTableOperations';
 import CabinTable from '../features/cabins/CabinTable';
-import BrandButton from '../ui/BrandButton';
 import Modal from '../ui/Modal';
 import CabinForm from '../features/cabins/CabinForm';
 import useModal from '../hooks/useModal';
+import StyledButton from '../ui/StyledButton';
 function Cabins() {
 	const { showModal, closeModal, openModal } = useModal();
 	return (
@@ -14,9 +14,9 @@ function Cabins() {
 				<CabinTableOperations />
 			</div>
 			<CabinTable />
-			<BrandButton sx={'my-4'} onClick={openModal}>
+			<StyledButton color='indigo' onClick={openModal}>
 				Add new cabin
-			</BrandButton>
+			</StyledButton>
 			{showModal && (
 				<Modal onClose={closeModal}>
 					<CabinForm onClose={closeModal} />

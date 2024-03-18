@@ -37,15 +37,15 @@ function Pagination({ count }) {
 				of <span className='font-semibold'>{count}</span>
 				{' result'}
 			</p>
-			<div className='flex items-center space-x-4 font-semibold text-gray-600'>
+			<div className='flex items-center space-x-4 text-sm text-text'>
 				<button
-					className='px-4 py-2 text-white bg-indigo-600 rounded-md cursor-pointer hover:opacity-80'
+					className='px-4 py-2 text-white rounded-md cursor-pointer bg-brand-light hover:opacity-80'
 					onClick={prevHandler}
 					disabled={currentPage == 1}>
 					{'< Previous'}
 				</button>
 				<button
-					className='px-4 py-2 text-white bg-indigo-600 rounded-md cursor-pointer hover:opacity-80'
+					className='px-4 py-2 text-white rounded-md cursor-pointer bg-brand-light hover:opacity-80'
 					onClick={nextHandler}
 					disabled={currentPage == pageCount}>
 					{'Next >'}

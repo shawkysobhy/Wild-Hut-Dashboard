@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-const activeButtonStyle = 'bg-indigo-500 text-white';
+const activeButtonStyle = 'bg-indigo-500 text-gray-50';
 
 function Filter({ options, filterField }) {
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -12,14 +12,14 @@ function Filter({ options, filterField }) {
 	const currentActiveButton = searchParams.get(filterField) || options[0].value;
 
 	return (
-		<div className='flex p-2 space-x-2 bg-white border border-gray-100 rounded-md'>
+		<div className='flex p-2 space-x-2 border rounded-md bg-background border-border-dark'>
 			{options.map((option) => {
 				return (
 					<button
-						className={`px-4 py-2 text-2xl  font-medium transition-all duration-300 ease-in-out  rounded-md hover:bg-indigo-500 hover:text-white ${
+						className={`px-4 py-2 text-sm text-text font-medium  transition-all duration-300 ease-in-out  rounded-md hover:bg-brand-light hover:text-white ${
 							option.value == currentActiveButton
 								? activeButtonStyle
-								: 'text-gray-600 bg-white'
+								: 'text-text bg-background'
 						}`}
 						key={option.value}
 						onClick={() => handleClick(option.value)}>

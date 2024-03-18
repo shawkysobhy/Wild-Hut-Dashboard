@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import useUpdatingSetting from './useUpdatingSetting';
 import Spinner from '../../ui/Spinner';
 import BrandButton from '../../ui/BrandButton';
+import StyledButton from '../../ui/StyledButton';
 
 function SettingsForm() {
 	const {
@@ -28,7 +29,7 @@ function SettingsForm() {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='px-16 py-10 overflow-hidden bg-white border border-gray-100 rounded-md '>
+			className='px-16 py-10 overflow-hidden bg-white border rounded-md border-gray-50 '>
 			<FormGroup>
 				<StyledLabel>Minimum nights/booking</StyledLabel>
 				<input
@@ -69,9 +70,9 @@ function SettingsForm() {
 					className='px-5 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-indigo-500'
 				/>
 			</FormGroup>
-			<BrandButton type='submit' sx={'my-4'}>
+			<StyledButton color='indigo' type='submit' className={'my-4'}>
 				{isUpdating ? 'Loading ' : 'Update'}
-			</BrandButton>
+			</StyledButton>
 		</form>
 	);
 }

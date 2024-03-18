@@ -1,10 +1,4 @@
-function Checkbox({
-	checked,
-	onChange,
-	disabled = false,
-	id,
-	children,
-}) {
+function Checkbox({ checked, onChange, disabled = false, id, children }) {
 	return (
 		<div className='flex items-center gap-4'>
 			<input
@@ -14,7 +8,7 @@ function Checkbox({
 				onChange={onChange}
 				disabled={disabled}
 				className={`h-9 w-9 outline-none transform origin-0 ${
-					!disabled ? 'text-indigo-600' : 'text-gray-400'
+					!disabled ? 'text-brand-light' : 'text-gray-400'
 				}`}
 			/>
 			<label

@@ -1,7 +1,5 @@
 function StyledLabel({ children }) {
-	return (
-		<label className='font-medium text-gray-600 text-[14px]'>{children}</label>
-	);
+	return <label className='text-sm font-medium text-text'>{children}</label>;
 }
 
 export default StyledLabel;

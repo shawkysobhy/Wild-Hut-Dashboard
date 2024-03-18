@@ -7,13 +7,13 @@ function Account() {
 			<div className='flex flex-col space-y-12'>
 				<StyledTitle>Account</StyledTitle>
 				<div className='flex flex-col space-y-8'>
-					<h3 className='text-[2rem] font-medium leading-[1.4] ml-4'>
+					<h3 className='ml-4 text-4xl font-medium leading-normal'>
 						Update user data
 					</h3>
 					<UpdateUserDataForm />
 				</div>
 				<div className='flex flex-col space-y-8'>
-					<h3 className='text-[2rem] font-medium leading-[1.4] ml-4'>
+					<h3 className='ml-4 text-4xl font-medium leading-normal'>
 						Update Password
 					</h3>
 					<UpdatePasswordForm />
