@@ -7,6 +7,9 @@ import Spinner from '../../ui/Spinner';
 import StyledButton from '../../ui/StyledButton';
 import BookingData from './BookingData';
 import useDeleteBooking from './useDeleteBooking';
+import useModal from '../../hooks/useModal';
+import Modal from '../../ui/Modal';
+import ConfirmDelete from '../../ui/ConfirmDelete';
 const statusTagName = {
 	unconfirmed: 'sky',
 	'checked-in': 'green',
@@ -14,6 +17,8 @@ const statusTagName = {
 };
 function BookingDetails() {
 	const moveBack = useMoveBack();
+	const { showModal, openModal, closeModal } = useModal();
+
 	const { deleteBooking } = useDeleteBooking();
 
 	const navigate = useNavigate();
@@ -53,18 +58,25 @@ function BookingDetails() {
 						Check out
 					</StyledButton>
 				)}
-				<StyledButton
-					color='red'
-					onClick={() => {
-						deleteBooking(id);
-						navigate('/bookings');
-					}}>
+				<StyledButton color='red' onClick={openModal}>
 					Delete booking
 				</StyledButton>
 				<StyledButton color='white' onClick={moveBack}>
 					Back
 				</StyledButton>
 			</div>
+			{showModal && (
+				<Modal onClose={closeModal}>
+					<ConfirmDelete
+						resourseName={'Booking'}
+						onConfrimDelete={() => {
+							deleteBooking(id);
+							navigate('/bookings');
+						}}
+						onClose={closeModal}
+					/>
+				</Modal>
+			)}
 		</div>
 	);
 }

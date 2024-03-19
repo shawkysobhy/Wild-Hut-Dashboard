@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import StyledButton from '../../ui/StyledButton';
-import BrandButton from '../../ui/BrandButton';
 import FormGroup from '../../ui/FormGroup';
 import StyledLabel from '../../ui/StyledLabel';
 import { useSignup } from './useSignup';
@@ -28,20 +27,18 @@ function SignupForm() {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='px-16 py-10 overflow-hidden bg-white border border-border-md text-5'>
+			className='px-16 py-10 overflow-hidden border bg-background border-border-dark text-5'>
 			<FormGroup>
 				<StyledLabel>Full name</StyledLabel>
 				<input
 					{...register('fullName', { required: 'This field is required' })}
-					placeholder='full name'
 					type='text'
-					id='fullName'
 					disabled={isLoading}
-					className='px-5 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-indigo-500'
+					className='px-5 py-3 border rounded-md shadow-sm border-border-dark focus:outline-brand-light text-text bg-background'
 				/>
-				{errors.fullName && (
-					<span className='ml-2 text-[12px] text-red-700'>
-						{errors.email.fullName}
+				{errors?.fullName && (
+					<span className='ml-2 text-xs text-red-700'>
+						{errors.fullName?.message}
 					</span>
 				)}
 			</FormGroup>
@@ -51,7 +48,7 @@ function SignupForm() {
 					type='email'
 					id='email'
 					autoComplete='email'
-					className='px-5 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-indigo-500'
+					className='px-5 py-3 border rounded-md shadow-sm border-border-dark focus:outline-brand-light text-text bg-background'
 					disabled={isLoading}
 					{...register('email', {
 						required: 'This field is required',
@@ -62,7 +59,7 @@ function SignupForm() {
 					})}
 				/>
 				{errors.email && (
-					<span className='ml-2 text-[12px] text-red-700'>
+					<span className='ml-2 text-xs text-red-600'>
 						{errors.email.message}
 					</span>
 				)}{' '}
@@ -73,7 +70,7 @@ function SignupForm() {
 					<span className='text-red-500 text-md'>(8 characters)</span>
 				</StyledLabel>
 				<input
-					className='px-5 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-indigo-500'
+					className='px-5 py-3 border rounded-md shadow-sm border-border-dark text-text bg-background focus:outline-brand-light'
 					type='password'
 					id='password'
 					autoComplete='new-password'
@@ -87,7 +84,7 @@ function SignupForm() {
 					})}
 				/>
 				{errors.password && (
-					<span className='ml-2 text-[12px] text-red-700'>
+					<span className='ml-2 text-xs text-red-600'>
 						{errors.password.message}
 					</span>
 				)}
@@ -101,18 +98,18 @@ function SignupForm() {
 						validate: (value) =>
 							value === getValues().password || 'Passwords need to match',
 					})}
-					className='px-5 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-indigo-500'
+					className='px-5 py-3 border rounded-md shadow-sm text-text bg-background border-border-dark focus:outline-brand-light'
 					type='password'
 					autoComplete='new-password'
 				/>
 				{errors.confirmPassword && (
-					<span className='ml-2 text-[12px] text-red-700'>
+					<span className='ml-2 text-xs text-red-600'>
 						{errors.confirmPassword.message}
 					</span>
 				)}
 			</FormGroup>
-			<div className='flex items-center justify-end py-5 border-b border-gray-100 gap-x-10'>
-				<StyledButton color='white' type='reset'>
+			<div className='flex items-center justify-end py-5 gap-x-10'>
+				<StyledButton color='white' type='reset' onClick={reset}>
 					Cancel
 				</StyledButton>
 				<StyledButton color='indigo'>Add new user</StyledButton>

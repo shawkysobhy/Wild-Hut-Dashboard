@@ -25,7 +25,7 @@ function Pagination({ count }) {
 	if (count <= 10) return null;
 	return (
 		<div className='flex items-center space-x-4 md:justify-between'>
-			<p className='ml-3 text-[1.4rem] text-gray-700'>
+			<p className='ml-3 text-[1.4rem] text-text'>
 				{'showing '}{' '}
 				<span className='font-semibold'>
 					{(currentPage - 1) * PAGE_ITEMS + 1}

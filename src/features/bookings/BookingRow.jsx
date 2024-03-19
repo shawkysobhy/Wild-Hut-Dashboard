@@ -26,13 +26,15 @@ function BookingRow({
 	return (
 		<tr
 			key={bookingId}
-			className=' grid  py-5 px-10 grid-cols-[.6fr_2fr_2.4fr_1.4fr_1fr_3.2rem]    gap-x-8 border-b border-border justify-center items-center text-left'>
-			<td className='text-base font-semibold font-sono'>{name}</td>
+			className=' grid  py-5 px-10 grid-cols-[.6fr_2fr_2.4fr_1.4fr_1fr_3.2rem] bg-background    gap-x-8 border-b border-border justify-center items-center text-left'>
+			<td className='text-base font-semibold text-text font-sono'>{name}</td>
 			<td className='flex flex-col'>
-				<span className='text-sm font-medium '>{guestName}</span>
-				<span className='text-xs text-gray-500'>{email}</span>
+				<span className='text-sm font-medium dark:text-gray-100'>
+					{guestName}
+				</span>
+				<span className='text-xs text-text'>{email}</span>
 			</td>
-			<td className='flex flex-col text-nowrap'>
+			<td className='flex flex-col text-nowrap text-text'>
 				<span className='text-sm font-medium'>
 					{isToday(new Date(startDate))
 						? 'Today'
@@ -47,7 +49,9 @@ function BookingRow({
 			<td className=''>
 				<Tag type={statusTagName[status]}>{status.replace('-', ' ')}</Tag>
 			</td>
-			<td className='font-medium font-sono'>{formatCurrency(totalPrice)}</td>
+			<td className='font-medium text-green-700 dark:text-gray-200 font-sono'>
+				{formatCurrency(totalPrice)}
+			</td>
 			<td>
 				<BookingActions bookingId={bookingId} status={status} />
 			</td>

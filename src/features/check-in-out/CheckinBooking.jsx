@@ -63,7 +63,7 @@ function CheckinBooking() {
 			</div>
 			<BookingData booking={booking} />
 			{!hasBreakfast && (
-				<div className='px-16 py-10 bg-white border border-gray-100 rounded-md'>
+				<div className='px-16 py-10 border rounded-md border-border-light text-text bg-background'>
 					<Checkbox
 						id='breakfast'
 						checked={addBreakfast}
@@ -76,7 +76,7 @@ function CheckinBooking() {
 				</div>
 			)}
 
-			<div className='px-16 py-10 bg-white border border-gray-100 rounded-md'>
+			<div className='px-16 py-10 border rounded-md text-text bg-background border-border-light'>
 				<Checkbox
 					id='confirm'
 					checked={confirmPaid}

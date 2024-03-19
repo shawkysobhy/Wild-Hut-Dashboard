@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-const activeButtonStyle = 'bg-indigo-500 text-gray-50';
+const activeButtonStyle = 'bg-indigo-500 text-white';
 
 function Filter({ options, filterField }) {
 	const [searchParams, setSearchParams] = useSearchParams();

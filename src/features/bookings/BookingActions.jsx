@@ -36,14 +36,14 @@ const BookingActions = ({ bookingId, status }) => {
 	return (
 		<div className='relative'>
 			<button
-				className='flex items-center justify-center w-10 h-10 bg-gray-200 rounded-md text-text focus:outline-none'
+				className='flex items-center justify-center w-10 h-10 rounded-md bg-border-light text-text focus:outline-none'
 				onClick={toggleMenu}>
 				<LuMoreVertical />
 			</button>
 			{isOpen && (
 				<div
 					ref={menuRef}
-					className='absolute top-0 right-0 z-20 mt-2 border rounded-lg shadow-lg bg-background border-border '>
+					className='absolute top-0 right-0 z-20 mt-2 border rounded-lg shadow-lg bg-background border-border-dark '>
 					<SmallButtonTable
 						onClick={bookingNavigateHandler}
 						icon={<HiEye className='flex-shrink-0 text-icon w-7 h-7' />}>

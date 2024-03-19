@@ -24,7 +24,7 @@ function BookingData({ booking }) {
 		cabins: { name: cabinName },
 	} = booking;
 	return (
-		<div className='overflow-hidden border rounded-lg bg-background '>
+		<div className='overflow-hidden border rounded-lg border-border-dark bg-background '>
 			<header className='flex flex-col px-8 py-6 space-y-6 text-2xl font-medium md:space-y-0 md:items-center md:justify-between md:px-16 md:py-8 bg-brand-light text-ctaText md:text-3xl md:flex-row'>
 				<div className='flex items-center space-x-4 '>
 					<HiOutlineHomeModern className='flex-shrink-0 w-12 h-12' />
@@ -41,9 +41,9 @@ function BookingData({ booking }) {
 				</p>
 			</header>
 			<section className='px-8 py-6 md:px-16 md:pt-12 md:pb-5'>
-				<div className='flex flex-col space-y-4 text-gray-500 md:space-y-0 md:space-x-5 md:flex-row md:items-center mb-7'>
+				<div className='flex flex-col space-y-4 text-text md:space-y-0 md:space-x-5 md:flex-row md:items-center mb-7'>
 					{countryFlag && <Flag src={countryFlag} alt={`Flag of ${country}`} />}
-					<p className='font-semibold text-gray-900'>
+					<p className='font-semibold text-text '>
 						{guestName} {numGuests > 1 ? `+ ${numGuests - 1} guests` : ''}
 					</p>
 					<span>&bull;</span>
@@ -51,9 +51,9 @@ function BookingData({ booking }) {
 					<span>&bull;</span>
 					<p>National ID {nationalID}</p>
 				</div>
-				<div className='flex items-center gap-4 py-3'>
+				<div className='flex items-center gap-4 py-3 text-text'>
 					<HiOutlineCheckCircle className='w-8 h-8 text-brand-dark' />
-					<p className='font-semibold'>Breakfast included?</p>
+					<p className='font-semibold '>Breakfast included?</p>
 					{hasBreakfast ? 'Yes' : 'No'}
 				</div>
 				<div

@@ -12,7 +12,7 @@ function BookingTable() {
 		<div className='overflow-x-auto max-w-screen'>
 			<div className='flex flex-col'>
 				<table className='border rounded-md border-border-dark '>
-					<thead className='px-10 py-6 tracking-wide text-[14px] text-text border-b border-border-light bg-gray-50'>
+					<thead className='px-10 py-6 text-sm tracking-wide border-b bg-containerBackground text-text border-border-light'>
 						<tr className='  py-5 px-10 grid text-left  grid-cols-[.6fr_2fr_2.4fr_1.4fr_1fr_3.2rem] gap-x-8 items-center	'>
 							<th>CABIN</th>
 							<th>GUEST</th>
@@ -28,7 +28,7 @@ function BookingTable() {
 						))}
 						<tr>
 							<td>
-								<div className='p-8 bg-gray-100 border border-border-dark rounde-b-md '>
+								<div className='p-8 border bg-background border-border-dark rounded-b-md '>
 									<Pagination count={count} />
 								</div>
 							</td>

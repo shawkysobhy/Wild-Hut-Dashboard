@@ -1,8 +1,8 @@
 const Tag = ({ type, children }) => {
 	const colorVariants = {
-		sky: 'bg-sky-100 text-sky-700',
-		green: 'bg-green-100 text-green-700',
-		gray: 'bg-slate-300 text-gray-700',
+		sky: 'bg-sky-100 text-sky-700 dark:bg-sky-800 dark:text-sky-100',
+		green: 'bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-100',
+		gray: 'bg-slate-300 text-gray-700 dark:bg-gray-700 dark:text-gray-100',
 	};
 	return (
 		<span

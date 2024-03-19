@@ -1,9 +1,9 @@
-import React from 'react'
-
 function PageNotFound() {
-  return (
-    <div>PageNotFound</div>
-  )
+	return (
+		<div className='flex items-center justify-center w-screen min-h-screen bg-background'>
+			PageNotFound
+		</div>
+	);
 }
 
-export default PageNotFound
+export default PageNotFound;

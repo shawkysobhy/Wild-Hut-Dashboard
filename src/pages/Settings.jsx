@@ -1,7 +1,4 @@
 import SettingsForm from '../features/settings/SettingsForm';
-// import CustomInput from '../ui/CustomInput';
-// import FormGroup from '../ui/FormGroup';
-// import StyledLabel from '../ui/StyledLabel';
 import StyledTitle from '../ui/StyledTitle';
 function Settings() {
 	return (
