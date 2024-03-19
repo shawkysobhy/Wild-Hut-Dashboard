@@ -1,6 +1,16 @@
-# WildHut Dashboard 
+# WildHut Dashboard
+
+![screenshot](/public/Screenshot.png)
 
 - WildHut Dashboard offers seamless guest booking management, encompassing check-ins, check-outs, and cabin data, all underpinned by robust authentication and authorization mechanisms for enhanced security and control.
+
+- Manage bookings, guests, and cabins for efficient check-in/out operations and up-to-date information with supabase
+  backend.
+- Implemented pagination, filtering, dark mode, authentication and data caching with React Query to provide an opti-
+  mized user experience, including prefetching for seamless data loading.
+- Implemented an optimized file structure with code splitting for improved performance and utilized component code
+  reusability
+
 ## Technology Stack
 
 The WildHut Project Dashboard is built using the following technologies:
@@ -10,6 +20,9 @@ The WildHut Project Dashboard is built using the following technologies:
 - **React Router DOM**
 - **Tailwind CSS**
 - **Supabase**
+- **rechart**
+- **toast**
+- **date fns**
 
 ## Features
 
