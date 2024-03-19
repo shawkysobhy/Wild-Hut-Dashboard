@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import useUpdatingSetting from './useUpdatingSetting';
 import Spinner from '../../ui/Spinner';
 import StyledButton from '../../ui/StyledButton';
+import SmallErrorMessage from '../../ui/SmallErrorMessage';
 
 function SettingsForm() {
 	const {
@@ -21,7 +22,6 @@ function SettingsForm() {
 		register,
 		handleSubmit,
 		formState: { errors },
-		reset,
 	} = useForm();
 	const { isUpdating, updateSetting } = useUpdatingSetting();
 	const onSubmit = (data) => {
@@ -37,54 +37,58 @@ function SettingsForm() {
 			<FormGroup>
 				<StyledLabel>Minimum nights/booking</StyledLabel>
 				<input
-					{...register('minBookingLength')}
+					{...register('minBookingLength', { required: 'must be filled' })}
 					type='number'
 					defaultValue={minBookingLength}
 					disabled={isUpdating}
 					className='px-5 py-3 border rounded-md shadow-sm border-border-dark focus:outline-brand-light bg-background text-text'
 				/>
-				<span className='text-xs text-red-500'>
-					{errors && errors?.message?.minBookingLength}
-				</span>
+				{errors?.minBookingLength && (
+					<SmallErrorMessage message={errors.minBookingLength?.message} />
+				)}
 			</FormGroup>
 			<FormGroup>
 				<StyledLabel>Maximum nights/booking</StyledLabel>
 				<input
-					{...register('maxBookingLength')}
+					{...register('maxBookingLength', { required: 'must be filled' })}
 					type='number'
 					defaultValue={maxBookingLength}
 					disabled={isUpdating}
 					className='px-5 py-3 border rounded-md shadow-sm text-text border-border-dark focus:outline-brand-light bg-background'
 				/>
-				<span className='text-xs text-red-500'>
-					{errors && errors?.message?.maxBookingLength}
-				</span>
+				{errors?.maxBookingLength && (
+					<SmallErrorMessage message={errors.maxBookingLength?.message} />
+				)}
 			</FormGroup>
 			<FormGroup>
 				<StyledLabel>Maximum guests/booking</StyledLabel>
 				<input
-					{...register('maxGuestPerBooking')}
+					{...register('maxGuestPerBooking', { required: 'must be filled' })}
 					type='number'
 					defaultValue={maxGuestPerBooking}
 					disabled={isUpdating}
 					className='px-5 py-3 border rounded-md shadow-sm text-text border-border-dark bg-background focus:outline-brand-light'
 				/>
-				<span className='text-xs text-red-500'>
-					{errors && errors?.message?.maxGuestPerBooking}
-				</span>
+				{errors?.maxBookingLength && (
+					<SmallErrorMessage message={errors.maxGuestPerBooking?.message} />
+				)}
 			</FormGroup>
 			<FormGroup>
 				<StyledLabel>Breakfast price</StyledLabel>
 				<input
-					{...register('breakfastPrice', { required: 'must be filled' })}
+					{...register('breakfastPrice', {
+						required: 'This field is required',
+						min: { value: 1, message: 'Value must be greater than zero' },
+						pattern: { value: /^[0-9]*$/, message: 'Only numbers are allowed' },
+					})}
 					type='number'
 					defaultValue={breakfastPrice}
 					disabled={isUpdating}
 					className='px-5 py-3 border rounded-md shadow-sm text-text bg-background border-border-dark focus:outline-brand-light'
 				/>
-				<span className='text-xs text-red-500'>
-					{errors && errors?.message?.breakfastPrice}
-				</span>
+				{errors?.breakfastPrice && (
+					<SmallErrorMessage message={errors.breakfastPrice?.message} />
+				)}
 			</FormGroup>
 			<StyledButton color='indigo' type='submit' className={'my-4'}>
 				{isUpdating ? 'Loading ' : 'Update'}

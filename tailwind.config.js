@@ -3,6 +3,16 @@ export default {
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
+			screens: {
+				sm: '640px',
+				md: '768px',
+				lg: '1024px',
+				xl: '1280px',
+				// Add your custom breakpoints here if needed
+				'2xl': '1536px',
+				wide: '500px',
+			},
+
 			fontSize: {
 				xs: '12px', // 12px
 				sm: '14px', // 14px

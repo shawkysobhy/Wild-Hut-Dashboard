@@ -3,6 +3,7 @@ import StyledButton from '../../ui/StyledButton';
 import MiniSpinner from '../../ui/MiniSpinner';
 import useLogin from './useLogin';
 import { zodResolver } from '@hookform/resolvers/zod';
+import SmallErrorMessage from '../../ui/SmallErrorMessage';
 import { z } from 'zod';
 const schema = z.object({
 	email: z.string().email(),
@@ -25,11 +26,8 @@ function LoginForm() {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className='space-y-3'>
-			<div className='flex flex-col space-y-2 py-[1.2rem]'>
-				<label
-					htmlFor='email'
-					{...register('email')}
-					className='block font-medium '>
+			<div className='flex flex-col bg-background space-y-2 py-[1.2rem] '>
+				<label htmlFor='email' {...register('email')} className='block '>
 					Email
 				</label>
 				<div className='flex flex-col space-y-2'>
@@ -38,12 +36,10 @@ function LoginForm() {
 						{...register('email')}
 						id='email'
 						autoComplete='email'
-						className='px-4 py-2 border border-gray-300 rounded-md shadow-sm md:py-3 outline-indigo-500'
+						className='px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-background md:py-3 outline-indigo-500'
 					/>
 					{errors.email && (
-						<span className='ml-2 text-[12px] text-red-700'>
-							{errors.email.message}
-						</span>
+						<SmallErrorMessage message={errors?.email?.message} />
 					)}
 				</div>
 			</div>
@@ -57,16 +53,19 @@ function LoginForm() {
 						type='password'
 						id='password'
 						autoComplete='current-password'
-						className='px-4 py-2 border border-gray-300 rounded-md shadow-sm md:py-3 outline-indigo-500'
+						className='px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-background md:py-3 outline-indigo-500'
 					/>
-					{errors.email && (
+					{errors.password && (
 						<span className='ml-2 text-[12px] text-red-700'>
-							{errors.password.message}
+							{errors?.password?.message}
 						</span>
+					)}
+					{errors.password && (
+						<SmallErrorMessage message={errors?.password?.message} />
 					)}
 				</div>
 			</div>
-			<StyledButton color='indigo' className='w-full text-[1.5rem]'>
+			<StyledButton color={'indigo'} className='w-full text-[1.5rem]'>
 				{isLoginLoading ? <MiniSpinner /> : 'log in'}
 			</StyledButton>
 		</form>

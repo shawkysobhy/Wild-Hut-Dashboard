@@ -35,7 +35,7 @@ const CabinActions = ({ cabin }) => {
 	return (
 		<div className='relative'>
 			<button
-				className='flex items-center justify-center w-10 h-10 rounded-md bg-border-light text-text hover:text-gray-800 focus:outline-none'
+				className='flex items-center justify-center w-10 h-10 rounded-md bg-border-light text-text hover:bg-gray-400 focus:outline-none'
 				onClick={toggleMenu}>
 				<LuMoreVertical />
 			</button>

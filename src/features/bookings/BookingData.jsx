@@ -2,7 +2,6 @@ import { format, isToday } from 'date-fns';
 import { formatDistanceFromNow, formatCurrency } from '../../utils/helpers';
 import Flag from '../../ui/Flag';
 import {
-	// HiOutlineChatBubbleBottomCenterText,
 	HiOutlineCheckCircle,
 	HiOutlineCurrencyDollar,
 	HiOutlineHomeModern,
@@ -46,9 +45,9 @@ function BookingData({ booking }) {
 					<p className='font-semibold text-text '>
 						{guestName} {numGuests > 1 ? `+ ${numGuests - 1} guests` : ''}
 					</p>
-					<span>&bull;</span>
+					<span className='hidden md:block'>&bull;</span>
 					<p>{email}</p>
-					<span>&bull;</span>
+					<span className='hidden md:block'>&bull;</span>
 					<p>National ID {nationalID}</p>
 				</div>
 				<div className='flex items-center gap-4 py-3 text-text'>

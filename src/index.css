@@ -67,17 +67,27 @@ body {
 	min-height: 100vh;
 	line-height: 1.5;
 	font-size: 1.6rem;
+	background-color: #9ca3af;
 }
-
+.body-dark {
+	background-color: rgb(17, 24, 39);
+	color: white;
+}
+.body-light {
+	background-color: rgb(249, 250, 251);
+	color: black;
+}
 @layer components {
 	.section-wrapper {
-		@apply w-full px-8 py-8 md:px-16 md:py-16 space-y-10 max-w-[1280px] mx-auto h-auto min-h-[80vh];
+		@apply w-full overflow-y-auto flex flex-col grow px-8 py-8 md:px-16 md:py-16 space-y-10 max-w-[1280px] mx-auto h-auto min-h-[80vh];
 	}
 	.small-button-table {
 		@apply block w-full px-10 py-5 text-text hover:bg-gray-200 focus:outline-none;
 	}
 }
-
+::-webkit-scrollbar {
+	display: none; /* Safari and Chrome */
+}
 .navLink.active {
 	color: black;
 	background-color: #e5e7eb;

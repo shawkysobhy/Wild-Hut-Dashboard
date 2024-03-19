@@ -3,7 +3,8 @@ import useContextProvider from '../hooks/useContext';
 function ConfirmDelete({ resourseName, onConfrimDelete, onClose }) {
 	const { mode } = useContextProvider();
 	return (
-		<div className={`${mode} w-[480px] px-16 bg-background py-14 rounded-lg`}>
+		<div
+			className={`${mode} w-[300px] sm:w-[480px] px-16 bg-background py-14 rounded-lg`}>
 			<div className='flex flex-col space-y-5'>
 				<p className='text-2xl leading-[1.4] font-semibold text-text'>
 					Delete {resourseName}

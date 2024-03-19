@@ -5,12 +5,16 @@ import { Context } from '../context/AppContext';
 const className = 'w-8 h-8 text-indigo-700';
 function DarkModeToggle() {
 	const { mode, setMode } = useContext(Context);
+	const handleMode = () => {
+		const newmode = mode == 'dark' ? 'light' : 'dark';
+		setMode(newmode);
+	};
 	return (
-		<IconButton>
+		<IconButton onClick={handleMode}>
 			{mode == 'dark' ? (
-				<HiOutlineSun className={className} onClick={() => setMode('light')} />
+				<HiOutlineSun className={className} />
 			) : (
-				<HiOutlineMoon className={className} onClick={() => setMode('dark')} />
+				<HiOutlineMoon className={className} />
 			)}
 		</IconButton>
 	);

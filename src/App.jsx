@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+	Navigate,
+	RouterProvider,
+	createBrowserRouter,
+} from 'react-router-dom';
 import {
 	Account,
 	Bookings,
@@ -26,7 +30,7 @@ const router = createBrowserRouter([
 			</ProtectedRoutes>
 		),
 		children: [
-			{ index: true, path: '/', element: <Dashboard /> },
+			{ index: true, path: '/', element: <Navigate to='/dashboard' replace /> },
 			{
 				path: paths.dashboard,
 				element: <Dashboard />,

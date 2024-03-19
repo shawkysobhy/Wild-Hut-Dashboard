@@ -12,11 +12,11 @@ function Filter({ options, filterField }) {
 	const currentActiveButton = searchParams.get(filterField) || options[0].value;
 
 	return (
-		<div className='flex p-2 space-x-2 border rounded-md bg-background border-border-dark'>
+		<div className='flex flex-wrap p-2 space-x-2 border rounded-md bg-background border-border-dark'>
 			{options.map((option) => {
 				return (
 					<button
-						className={`px-4 py-2 text-sm text-text font-medium  transition-all duration-300 ease-in-out  rounded-md hover:bg-brand-light hover:text-white ${
+						className={`px-2 md:px-4 py-2 text-xs md:text-sm text-text font-medium  transition-all duration-300 ease-in-out  rounded-md hover:bg-brand-light hover:text-white ${
 							option.value == currentActiveButton
 								? activeButtonStyle
 								: 'text-text bg-background'

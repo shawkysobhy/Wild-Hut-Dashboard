@@ -1,7 +1,9 @@
+import StyledTitle from '../ui/StyledTitle';
+
 function PageNotFound() {
 	return (
 		<div className='flex items-center justify-center w-screen min-h-screen bg-background'>
-			PageNotFound
+			<StyledTitle>PageNotFound</StyledTitle>
 		</div>
 	);
 }

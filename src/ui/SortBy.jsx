@@ -12,7 +12,7 @@ function SortBy({ options }) {
 	return (
 		<select
 			onChange={handleChange}
-			className='px-5 py-3 text-sm font-medium border rounded-md bg-background text-text border-border-dark'
+			className='px-5 py-3 text-xs font-medium border rounded-md md:text-sm bg-background text-text border-border-dark'
 			value={sortBy}>
 			{options.map((option) => {
 				return (

@@ -26,9 +26,9 @@ function BookingDetails() {
 	if (isLoading) return <Spinner />;
 	const { id, status } = booking;
 	return (
-		<div className='flex flex-col max-w-[1200px] mx-auto space-y-12'>
+		<div className='flex flex-col max-w-[1200px]  space-y-12'>
 			<div className='flex items-center justify-between'>
-				<div className='flex flex-col px-4 space-y-4 md:items-center md:space-y-0 md:space-x-6 md:flex-row '>
+				<div className='flex flex-col items-start px-4 space-y-4 md:items-center md:space-y-0 md:space-x-6 md:flex-row '>
 					<StyledTitle>Booking #{id}</StyledTitle>
 					<Tag type={statusTagName[status]}>{status.replace('-', ' ')}</Tag>
 				</div>

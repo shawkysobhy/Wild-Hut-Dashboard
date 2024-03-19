@@ -3,6 +3,7 @@ import StyledButton from '../../ui/StyledButton';
 import FormGroup from '../../ui/FormGroup';
 import StyledLabel from '../../ui/StyledLabel';
 import { useSignup } from './useSignup';
+import SmallErrorMessage from '../../ui/SmallErrorMessage';
 
 function SignupForm() {
 	const { signup, isLoading } = useSignup();
@@ -36,10 +37,9 @@ function SignupForm() {
 					disabled={isLoading}
 					className='px-5 py-3 border rounded-md shadow-sm border-border-dark focus:outline-brand-light text-text bg-background'
 				/>
+
 				{errors?.fullName && (
-					<span className='ml-2 text-xs text-red-700'>
-						{errors.fullName?.message}
-					</span>
+					<SmallErrorMessage message={errors.fullName?.message} />
 				)}
 			</FormGroup>
 			<FormGroup>
@@ -58,11 +58,7 @@ function SignupForm() {
 						},
 					})}
 				/>
-				{errors.email && (
-					<span className='ml-2 text-xs text-red-600'>
-						{errors.email.message}
-					</span>
-				)}{' '}
+				{errors.email && <SmallErrorMessage message={errors?.email?.message} />}
 			</FormGroup>
 			<FormGroup>
 				<StyledLabel>
@@ -84,9 +80,7 @@ function SignupForm() {
 					})}
 				/>
 				{errors.password && (
-					<span className='ml-2 text-xs text-red-600'>
-						{errors.password.message}
-					</span>
+					<SmallErrorMessage message={errors?.password?.message} />
 				)}
 			</FormGroup>
 			<FormGroup>
@@ -103,9 +97,7 @@ function SignupForm() {
 					autoComplete='new-password'
 				/>
 				{errors.confirmPassword && (
-					<span className='ml-2 text-xs text-red-600'>
-						{errors.confirmPassword.message}
-					</span>
+					<SmallErrorMessage message={errors?.confirmPassword?.message} />
 				)}
 			</FormGroup>
 			<div className='flex items-center justify-end py-5 gap-x-10'>

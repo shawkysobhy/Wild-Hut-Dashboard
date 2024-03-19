@@ -7,11 +7,11 @@ function Layout({ hideHeaderPaths = [] }) {
 	const { pathname } = useLocation();
 	const { mode } = useContext(Context);
 	return (
-		<div className={`block ${mode} lg:flex  min-h-screen`}>
-			<div className='hidden lg:block'>
+		<div className={`block ${mode} lg:flex `}>
+			<div className='hidden bg-background lg:block'>
 				<Sidebar />
 			</div>
-			<div className='flex flex-col flex-1 bg-containerBackground'>
+			<div className='flex flex-col flex-1 min-h-screen bg-containerBackground'>
 				{!hideHeaderPaths.includes(pathname) && <Header />}
 				<Outlet />
 			</div>

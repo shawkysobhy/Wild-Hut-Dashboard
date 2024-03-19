@@ -9,7 +9,7 @@ const UserAvatar = () => {
 			<img
 				src={avatar || defaultUser}
 				alt={fullName}
-				className='block border-2 border-gray-100 rounded-full w-14 h-14'
+				className='block border-2 rounded-full border-border-dark w-14 h-14'
 			/>
 			<span className='text-[1.4rem]'>{fullName}</span>
 		</div>
