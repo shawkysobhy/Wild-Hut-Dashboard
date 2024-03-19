@@ -16,7 +16,7 @@ function LoginForm() {
 		handleSubmit,
 		formState: { errors },
 	} = useForm({
-		defaultValues: { email: 'shawkysobhy@xyz.com', password: '12345678' },
+		defaultValues: { email: 'shawkysobhy11@xyz.com', password: '123456789' },
 		resolver: zodResolver(schema),
 	});
 	const onSubmit = (data) => {

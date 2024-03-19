@@ -37,14 +37,14 @@ function UpdateUserDataForm() {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className='px-16 py-10 overflow-hidden border rounded-md bg-background border-border '>
+			className='px-16 py-10 overflow-hidden border rounded-md bg-background border-border-dark '>
 			<FormGroup>
 				<StyledLabel>Email</StyledLabel>
 				<input
 					type='eamil'
 					disabled
 					value={email}
-					className='px-5 py-3 bg-gray-300 border rounded-md shadow-sm cursor-not-allowed border-border focus:outline-brand-light'
+					className='px-5 py-3 border rounded-md shadow-sm cursor-not-allowed bg-background border-border focus:outline-brand-light'
 				/>
 			</FormGroup>
 			<FormGroup>
@@ -55,7 +55,7 @@ function UpdateUserDataForm() {
 					onChange={(e) => setFullName(e.target.value)}
 					id='fullName'
 					disabled={isUpdating}
-					className='px-5 py-3 border rounded-md shadow-sm border-border focus:outline-brand-light'
+					className='px-5 py-3 border rounded-md shadow-sm bg-background border-border focus:outline-brand-light'
 				/>{' '}
 			</FormGroup>
 			<FormGroup>

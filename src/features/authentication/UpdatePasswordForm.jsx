@@ -17,7 +17,7 @@ function UpdatePasswordForm() {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='px-[40px] py-[24px] overflow-hidden bg-white border border-gray-100 rounded-md '>
+			className='px-[40px] py-[24px] overflow-hidden bg-background border border-border-dark rounded-md '>
 			<FormGroup>
 				<StyledLabel>Password</StyledLabel>
 				<input
@@ -32,7 +32,7 @@ function UpdatePasswordForm() {
 							message: 'Password needs a minimum of 8 characters',
 						},
 					})}
-					className='px-5 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-indigo-500'
+					className='px-5 py-3 border rounded-md shadow-sm bg-background focus:outline-indigo-500'
 				/>
 				{errors.password && (
 					<span className='text-red-600'>{errors.password.message}</span>
@@ -50,7 +50,7 @@ function UpdatePasswordForm() {
 						validate: (value) =>
 							getValues().password === value || 'Passwords need to match',
 					})}
-					className='px-5 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-indigo-500'
+					className='px-5 py-3 border rounded-md shadow-sm bg-background focus:outline-indigo-500'
 				/>
 				{errors.password && (
 					<span className='text-red-600'>{errors.passwordConfirm.message}</span>
