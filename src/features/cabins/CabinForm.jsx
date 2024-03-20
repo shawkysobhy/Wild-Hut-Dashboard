@@ -40,7 +40,7 @@ function CabinForm({ editableCabin = {}, onClose }) {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className='p-8 border rounded-md bg-background border-border text-5'>
+			className='p-8 rounded-md rder bg-background border-border text-5'>
 			<CabinFormRow error={errors?.name}>
 				<StyledLabel>Cabin name</StyledLabel>
 				<FormInput

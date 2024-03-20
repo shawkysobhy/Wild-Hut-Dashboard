@@ -13,7 +13,7 @@ const Modal = ({ onClose, children }) => {
 		<div
 			onClick={handleOverlayClick}
 			className={`${mode}  p-4 fixed top-0 left-0 z-50 flex items-center justify-center w-full h-full overflow-auto transition-all duration-500 bg-[#ffffff1a] bg-opacity-50 backdrop-filter backdrop-blur-sm no-scrollbar`}>
-			<div className='my-4 transition-all duration-500 transform rounded-lg shadow-lg  bg-background max-w-4/5 md:max-w-3/5'>
+			<div className='w-4/5 my-4 transition-all duration-500 transform rounded-lg shadow-lg bg-background md:w-3/5'>
 				<button className='absolute right-4 top-4' onClick={() => onClose()}>
 					<IoClose className='w-12 h-12 text-gray-500 dark:text-gray-50 ' />
 				</button>
