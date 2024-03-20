@@ -40,10 +40,6 @@ The WildHut Project Dashboard is built using the following technologies:
 
 ## Getting Started
 
-To get started with the WildHut Project Dashboard, follow the
-
-## Getting Started
-
 To get started with the WildHut Project Dashboard, follow these steps:
 
 1. **Installation**: Clone the repository to your local machine.
